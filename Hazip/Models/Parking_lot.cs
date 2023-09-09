@@ -21,9 +21,9 @@ End_Date	:
         public string Parking_Lot_Issue { get; set; }
         public string Response { get; set; }
         public string Responsible_Party { get; set; }
-        public DateOnly Start_Date { get; set; }
+        public string Start_Date { get; set; }
 
-        public DateOnly End_Date { get; set; }
+        public string End_Date { get; set; }
 
 
     }

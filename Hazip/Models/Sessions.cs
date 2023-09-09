@@ -17,10 +17,10 @@ Scribe_ID	:	do9xnm2r4rievgx9vcofpj
 Session_Comments	:	
 */
         public string ID { get; set; }
-        public DateOnly Date { get; set; }
-        public int Duration { get; set; }
+        public string Date { get; set; }
+        public string Duration { get; set; }
 
-        public int Session { get; set; }
+        public string Session { get; set; }
         public string Facilitator_ID { get; set; }
         public string Scribe_ID { get; set; }
         public string Session_Comments { get; set; }

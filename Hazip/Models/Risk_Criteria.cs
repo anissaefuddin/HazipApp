@@ -9,10 +9,10 @@ namespace Hazip.Models
 {
     public class Risk_Criteria
     {
-        public Likelihoods likelihoods {  get; set; }
-        public Severitys severitys { get; set; }
-        public Intersections intersections { get; set; }
-        public Risk_Rankings risk_Rankings { get; set; }
+        public List<Likelihoods> likelihoods {  get; set; }
+        public List<Severitys> severitys { get; set; }
+        public List<Intersections> intersections { get; set; }
+        public List<Risk_Rankings> risk_Rankings { get; set; }
 
     }
 }
