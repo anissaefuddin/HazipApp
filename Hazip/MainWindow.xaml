@@ -7,6 +7,29 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="1000">
     <Grid>
+        <StackPanel>
+            <Menu>
+                <MenuItem Header="File">
+                    <MenuItem Header="New" />
+                    <MenuItem Header="Open" />
+                    <Separator/>
+                    <MenuItem Header="Exit"/>
+                </MenuItem>
+                <MenuItem Header="Edit">
+                    <MenuItem Header="Cut"/>
+                    <MenuItem Header="Copy"/>
+                    <MenuItem Header="Paste"/>
+                </MenuItem>
+            </Menu>
+            <TabControl Height="750" SelectedIndex="{Binding SelectedIndexMenu }" >
+                <TabItem Header="Study Data" Height="60"  >
+                    <ContentControl Content="{Binding MenuStudyData}"/>
+                </TabItem>
+                <TabItem Header="TabItem" Height="60">
+                    
+                </TabItem>
+            </TabControl>
 
+        </StackPanel>
     </Grid>
 </Window>
