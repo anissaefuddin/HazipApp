@@ -74,7 +74,7 @@
                                 <ColumnDefinition Width="450"/>
                             </Grid.ColumnDefinitions>
                             <TextBlock HorizontalAlignment="Right" FontSize="18" VerticalAlignment="Center" Grid.Column="0" Margin="0,0,10,0" Text="Facility Owner" />
-                            <TextBox Grid.Column="1" Style="{ StaticResource StyleTextBoxBase }" Text="{ Binding StudyCoordinator, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  />
+                            <TextBox Grid.Column="1" Style="{ StaticResource StyleTextBoxBase }" Text="{ Binding FacilityOwner, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  />
                         </Grid>
 
                         <Grid Grid.Row="5" HorizontalAlignment="Center" Margin="0,0,0,10" >
@@ -83,7 +83,7 @@
                                 <ColumnDefinition Width="450"/>
                             </Grid.ColumnDefinitions>
                             <TextBlock HorizontalAlignment="Right" FontSize="18" VerticalAlignment="Center" Grid.Column="0" Margin="0,0,10,0" Text="Unit" />
-                            <TextBox Grid.Column="1" Style="{ StaticResource StyleTextBoxBase }"  />
+                            <TextBox Grid.Column="1" Style="{ StaticResource StyleTextBoxBase }" Text="{ Binding Unit, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  />
                         </Grid>
 
                         <Grid Grid.Row="6" HorizontalAlignment="Center" Margin="0,0,0,10" >
@@ -92,7 +92,7 @@
                                 <ColumnDefinition Width="450"/>
                             </Grid.ColumnDefinitions>
                             <TextBlock HorizontalAlignment="Right" FontSize="18" VerticalAlignment="Center" Grid.Column="0" Margin="0,0,10,0" Text="Report Number" />
-                            <TextBox Grid.Column="1" Style="{ StaticResource StyleTextBoxBase }"  />
+                            <TextBox Grid.Column="1" Style="{ StaticResource StyleTextBoxBase }" Text="{ Binding ReportNumber, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
                         </Grid>
 
                         <Grid Grid.Row="7" HorizontalAlignment="Center" Margin="0,0,0,10" >
@@ -101,7 +101,7 @@
                                 <ColumnDefinition Width="450"/>
                             </Grid.ColumnDefinitions>
                             <TextBlock HorizontalAlignment="Right" FontSize="18" VerticalAlignment="Center" Grid.Column="0" Margin="0,0,10,0" Text="Project Number" />
-                            <TextBox Grid.Column="1" Style="{ StaticResource StyleTextBoxBase }"  />
+                            <TextBox Grid.Column="1" Style="{ StaticResource StyleTextBoxBase }" Text="{ Binding ProjectNumber, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  />
                         </Grid>
 
                         <Grid Grid.Row="8" HorizontalAlignment="Center" Margin="0,0,0,10" >
@@ -110,9 +110,9 @@
                                 <ColumnDefinition Width="450"/>
                             </Grid.ColumnDefinitions>
                             <TextBlock HorizontalAlignment="Right" FontSize="18" VerticalAlignment="Center" Grid.Column="0" Margin="0,0,10,0" Text="Description" />
-                            <TextBox Grid.Column="1" Height="60" Style="{ StaticResource StyleTextBoxBase }" />
+                            <TextBox Grid.Column="1" Height="60" Style="{ StaticResource StyleTextBoxBase }" Text="{ Binding ProjectDescription, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
                         </Grid>
-                        <Button Grid.Row="9" Width="150" Margin="0,0,0,15"  Content="Save" FontSize="20" />
+                        <Button Grid.Row="9" Width="150" Margin="0,0,0,15" Command="{ Binding SaveDataOverview, UpdateSourceTrigger=PropertyChanged}"  Content="Save" FontSize="20" />
                     </Grid>
                 </ScrollViewer>
             </StackPanel>

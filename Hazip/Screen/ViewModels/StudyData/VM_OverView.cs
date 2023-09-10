@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Windows.Input;
+using Hazip.Models;
 
 namespace Hazip.Screen.ViewModels.StudyData
 {
@@ -232,7 +233,8 @@ namespace Hazip.Screen.ViewModels.StudyData
 
         private void saveOverView()
         {
-
+            Overview overview = new Overview();
+            
         }
 
 
