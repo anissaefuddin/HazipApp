@@ -25,22 +25,22 @@ namespace Hazip.Models
         Project_Description	:	
         General_Notes	:	
         */
-        public string Study_Name { get; set; }
-        public string Study_Coordinator { get; set; }
-        public string Study_Coordinator_Contact_Info { get; set; }
-        public string Facility { get; set; }
-        public string Facility_Location { get; set; }
-        public string Facility_Owner { get; set; }
-        public string Overview_Company { get; set; }
-        public string Site { get; set; }
-        public string Plant { get; set; }
-        public string Unit__Group { get; set; }
-        public string Unit { get; set; }
-        public string Sub__Unit { get; set; }
-        public string Report_Number { get; set; }
-        public string Project_Number { get; set; }
-        public string Project_Description { get; set; }
-        public string General_Notes { get; set; }
+        public string? Study_Name { get; set; }
+        public string? Study_Coordinator { get; set; }
+        public string? Study_Coordinator_Contact_Info { get; set; }
+        public string? Facility { get; set; }
+        public string? Facility_Location { get; set; }
+        public string? Facility_Owner { get; set; }
+        public string? Overview_Company { get; set; }
+        public string? Site { get; set; }
+        public string? Plant { get; set; }
+        public string? Unit__Group { get; set; }
+        public string? Unit { get; set; }
+        public string? Sub__Unit { get; set; }
+        public string? Report_Number { get; set; }
+        public string? Project_Number { get; set; }
+        public string? Project_Description { get; set; }
+        public string? General_Notes { get; set; }
 
     }
 }
