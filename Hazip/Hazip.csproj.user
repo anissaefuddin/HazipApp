@@ -7,15 +7,16 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Screen\Pages\MenuStudyData\StudyData.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Screen\Pages\MenuStudyData\StudyData.xaml">
+    <Page Update="Screen\Pages\StudyDataMenu\OverView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Screen\Pages\StudyDataMenu\PageIndex.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Screen\Resource\StyleComponentControl.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

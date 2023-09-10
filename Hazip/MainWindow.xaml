@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hazip"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1000">
+        Title="MainWindow" Height="800" Width="1000" WindowState="Maximized">
     <Grid>
         <StackPanel>
             <Menu>
@@ -23,7 +23,7 @@
             </Menu>
             <TabControl Height="750" SelectedIndex="{Binding SelectedIndexMenu }" >
                 <TabItem Header="Study Data" Height="60"  >
-                    <ContentControl Content="{Binding MenuStudyData}"/>
+                    <Frame Name="frameMenu1" Source="Screen/Pages/StudyDataMenu/PageIndex.xaml"/>
                 </TabItem>
                 <TabItem Header="TabItem" Height="60">
                     

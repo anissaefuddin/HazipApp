@@ -1,0 +1,121 @@
+﻿<Page x:Class="Hazip.Screen.Pages.StudyDataMenu.OverView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Hazip.Screen.Pages.StudyDataMenu"
+      xmlns:vm="clr-namespace:Hazip.Screen.ViewModels.StudyData"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="OverView">
+
+    <Page.DataContext>
+        <vm:VM_OverView x:Name="VM_OverView" />
+    </Page.DataContext>
+    
+    <Grid>
+        <Border Padding="10">
+            <StackPanel>
+                <TextBlock Text="Overview" FontSize="20" FontWeight="Bold" Margin="0,0,0,20" />
+                <ScrollViewer Height="500">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0" HorizontalAlignment="Center" Margin="0,0,0,10" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="180"/>
+                                <ColumnDefinition Width="450"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock HorizontalAlignment="Right" FontSize="18" VerticalAlignment="Center" Grid.Column="0" Margin="0,0,10,0" Text="Study Name" />
+                            <TextBox Style="{ StaticResource StyleTextBoxBase }" Grid.Column="1"  Text="{ Binding StudyName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                        </Grid>
+
+                        <Grid Grid.Row="1" HorizontalAlignment="Center" Margin="0,0,0,10" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="180"/>
+                                <ColumnDefinition Width="450"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock HorizontalAlignment="Right" FontSize="18" VerticalAlignment="Center" Grid.Column="0" Margin="0,0,10,0" Text="Study Coordinator" />
+                            <TextBox Grid.Column="1" Style="{ StaticResource StyleTextBoxBase }" Text="{ Binding StudyCoordinator, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  />
+                        </Grid>
+
+                        <Grid Grid.Row="2" HorizontalAlignment="Center" Margin="0,0,0,10" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="180"/>
+                                <ColumnDefinition Width="450"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" FontSize="18" VerticalAlignment="Center" Grid.Column="0" Margin="0,0,10,0" Text="Study Coordinator Contact Info" />
+                            <TextBox Grid.Column="1"  Style="{ StaticResource StyleTextBoxBase }" Text="{ Binding StudyCoordinatorContactInfo, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                        </Grid>
+
+                        <Grid Grid.Row="3" HorizontalAlignment="Center" Margin="0,0,0,10" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="180"/>
+                                <ColumnDefinition Width="450"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock HorizontalAlignment="Right" FontSize="18" VerticalAlignment="Center" Grid.Column="0" Margin="0,0,10,0" Text="Facility" />
+                            <TextBox Grid.Column="1" Style="{ StaticResource StyleTextBoxBase }" Text="{ Binding Facility, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  />
+                        </Grid>
+
+                        <Grid Grid.Row="4" HorizontalAlignment="Center" Margin="0,0,0,10" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="180"/>
+                                <ColumnDefinition Width="450"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock HorizontalAlignment="Right" FontSize="18" VerticalAlignment="Center" Grid.Column="0" Margin="0,0,10,0" Text="Facility Owner" />
+                            <TextBox Grid.Column="1" Style="{ StaticResource StyleTextBoxBase }" Text="{ Binding StudyCoordinator, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  />
+                        </Grid>
+
+                        <Grid Grid.Row="5" HorizontalAlignment="Center" Margin="0,0,0,10" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="180"/>
+                                <ColumnDefinition Width="450"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock HorizontalAlignment="Right" FontSize="18" VerticalAlignment="Center" Grid.Column="0" Margin="0,0,10,0" Text="Unit" />
+                            <TextBox Grid.Column="1" Style="{ StaticResource StyleTextBoxBase }"  />
+                        </Grid>
+
+                        <Grid Grid.Row="6" HorizontalAlignment="Center" Margin="0,0,0,10" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="180"/>
+                                <ColumnDefinition Width="450"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock HorizontalAlignment="Right" FontSize="18" VerticalAlignment="Center" Grid.Column="0" Margin="0,0,10,0" Text="Report Number" />
+                            <TextBox Grid.Column="1" Style="{ StaticResource StyleTextBoxBase }"  />
+                        </Grid>
+
+                        <Grid Grid.Row="7" HorizontalAlignment="Center" Margin="0,0,0,10" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="180"/>
+                                <ColumnDefinition Width="450"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock HorizontalAlignment="Right" FontSize="18" VerticalAlignment="Center" Grid.Column="0" Margin="0,0,10,0" Text="Project Number" />
+                            <TextBox Grid.Column="1" Style="{ StaticResource StyleTextBoxBase }"  />
+                        </Grid>
+
+                        <Grid Grid.Row="8" HorizontalAlignment="Center" Margin="0,0,0,10" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="180"/>
+                                <ColumnDefinition Width="450"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock HorizontalAlignment="Right" FontSize="18" VerticalAlignment="Center" Grid.Column="0" Margin="0,0,10,0" Text="Description" />
+                            <TextBox Grid.Column="1" Height="60" Style="{ StaticResource StyleTextBoxBase }" />
+                        </Grid>
+                        <Button Grid.Row="9" Width="150" Margin="0,0,0,15"  Content="Save" FontSize="20" />
+                    </Grid>
+                </ScrollViewer>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>
