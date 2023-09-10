@@ -246,6 +246,7 @@ namespace Hazip.Screen.ViewModels.StudyData
 
         private void saveOverView()
         {
+<<<<<<< HEAD
             Overview overview = new Overview(); 
             overview.Study_Name = _studyName;
             overview.Study_Coordinator = _studyCoordinator;
@@ -255,6 +256,10 @@ namespace Hazip.Screen.ViewModels.StudyData
             //jsonFilePath = "path_to_your_json_file.json"; // Gantilah dengan path file JSON Anda
             File.WriteAllText(App.dataFile.FilePath, App.dataFile.Content);
 
+=======
+            Overview overview = new Overview();
+            
+>>>>>>> b853fa0e621a192e73bf2fb0d2b6afc054766bf6
         }
 
         public void loadDataOverview(Overview overview)
