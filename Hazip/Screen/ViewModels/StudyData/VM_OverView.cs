@@ -39,7 +39,6 @@ namespace Hazip.Screen.ViewModels.StudyData
         {
             get
             {
-                var stet = App.dataObject().StudyName;
                 return _studyName;
             }
             set
