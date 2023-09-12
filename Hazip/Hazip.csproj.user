@@ -7,6 +7,11 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Views\Study_Overview.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -28,7 +33,7 @@
     <Page Update="Views\Shipments.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Study_OverView.xaml">
+    <Page Update="Views\Study_Overview.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\StudyDataMenu\PageIndex.xaml">

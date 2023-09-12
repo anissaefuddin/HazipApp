@@ -17,7 +17,7 @@
 
         <Border CornerRadius="0,20,20,0">
             <Border.Background>
-                <ImageBrush ImageSource="/Images/transaction_page.png"
+                <ImageBrush 
                             Stretch="None" />
             </Border.Background>
         </Border>
