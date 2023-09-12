@@ -10,13 +10,49 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Screen\Pages\StudyDataMenu\OverView.xaml">
+    <Page Update="Views\Customers.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Screen\Pages\StudyDataMenu\PageIndex.xaml">
+    <Page Update="Views\Study.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Screen\Resource\StyleComponentControl.xaml">
+    <Page Update="Views\Orders.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Products.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Settings.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Shipments.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Study_OverView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\StudyDataMenu\PageIndex.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Transactions.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Resource\StyleComponentControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\Button.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\Image.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\Page.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\Text.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Utilities\DataTemplate.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

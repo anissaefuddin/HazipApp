@@ -4,10 +4,12 @@ using Newtonsoft.Json;
 using System;
 using System.IO;
 using System.Windows;
-using DataObject = Hazip.Models.DataObject;
-using Hazip.Screen.ViewModels.StudyData;
+using Hazip.ViewModels.StudyData;
 using Hazip.Services;
 using System.Runtime.InteropServices;
+using Hazip.Views.Pages;
+using System.Windows.Controls;
+using Hazip.ViewModels;
 
 namespace Hazip
 {
@@ -20,13 +22,9 @@ namespace Hazip
         public MainWindow()
         {
             InitializeComponent();
-            VM_OverView vM_OverView = new VM_OverView();
-        }
 
-        
-
-        private void OpenFile_Click(object sender, RoutedEventArgs e)
-        {
+            NavigationVM vm = new NavigationVM();
+            // loading file
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
 
@@ -36,24 +34,21 @@ namespace Hazip
                 {
                     App.dataFile.FilePath = openFileDialog.FileName;
                     App.dataFile.Content = File.ReadAllText(App.dataFile.FilePath);
-                    App.dataObject = JsonConvert.DeserializeObject<DataObject>(App.dataFile.Content);
-                    //VM_OverView.loadDataOverview(App.dataObject.Overview);
-                    SetDataOverView();
+                    App.dataObject = JsonConvert.DeserializeObject<DataObjek>(App.dataFile.Content);
                     MessageBox.Show(App.dataFile.Content, "JSON Data", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 catch (Exception ex)
                 {
-                    WriteLogException.LogException(ex);
                     MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
+            
         }
 
-        private void SetDataOverView()
+        private void CloseApp_Click(object sender, RoutedEventArgs e)
         {
-            VM_OverView vM_OverView = new VM_OverView();
-            vM_OverView.StudyName = App.dataObject.Overview.Study_Name;
-            string a = "";
+            Close();
         }
+
     }
 }

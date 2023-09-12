@@ -3,33 +3,201 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Hazip"
+        xmlns:vm="clr-namespace:Hazip.ViewModels"
+        xmlns:Menu="clr-namespace:Hazip.Utilities" 
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1000" WindowState="Maximized">
-    <Grid>
-        <StackPanel>
-            <Menu>
-                <MenuItem Header="File">
-                    <MenuItem Header="New" />
-                    <MenuItem Header="Open" Click="OpenFile_Click"/>
-                    <Separator/>
-                    <MenuItem Header="Exit"/>
-                </MenuItem>
-                <MenuItem Header="Edit">
-                    <MenuItem Header="Cut"/>
-                    <MenuItem Header="Copy"/>
-                    <MenuItem Header="Paste"/>
-                </MenuItem>
-            </Menu>
-            <TabControl Height="750" SelectedIndex="{Binding SelectedIndexMenu }" >
-                <TabItem Header="Study Data" Height="60"  >
-                    <Frame Name="frameMenu1" Source="Screen/Pages/StudyDataMenu/PageIndex.xaml"/>
-                </TabItem>
-                <TabItem Header="TabItem" Height="60">
-                    
-                </TabItem>
-            </TabControl>
+        Title="MainWindow"
+        Height="700"
+        Width="1200"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Background="Transparent">
+    <Window.DataContext>
+        <vm:NavigationVM/>
+    </Window.DataContext>
 
-        </StackPanel>
+    <Grid>
+
+        <!--// Window Border //-->
+
+
+        <Border Background="#212529"
+            CornerRadius="20" />
+
+        <Grid>
+
+            <!--// Base Grid //-->
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="100" />
+                <RowDefinition Height="622" />
+            </Grid.RowDefinitions>
+
+            <!--// Navigation Panel //-->
+
+            <Grid Grid.Row="0">
+                <StackPanel>
+                    <Menu>
+                        <MenuItem Header="File">
+                            <MenuItem Header="New" />
+                            <MenuItem Header="Open"/>
+                            <Separator/>
+                            <MenuItem Header="Exit"/>
+                        </MenuItem>
+                        <MenuItem Header="Edit">
+                            <MenuItem Header="Cut"/>
+                            <MenuItem Header="Copy"/>
+                            <MenuItem Header="Paste"/>
+                        </MenuItem>
+                    </Menu>
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="1" >
+
+                <Border Background="#272B2F"
+                    CornerRadius="20,0,0,20" />
+
+                <StackPanel Orientation="Horizontal" Width="1095" HorizontalAlignment="Left">
+
+                    <!--// Home //-->
+
+                    <Menu:Btn Style="{StaticResource BtnStyle}"
+                          Command="{Binding HomeCommand}"
+                          IsChecked="True">
+
+                        <Grid>
+
+                            <Image Source="Images/img_home.png"
+                               Style="{StaticResource Image_Style}" />
+
+                            <TextBlock Text="Home"
+                                   Style="{StaticResource Text_Style}" />
+
+                        </Grid>
+
+                    </Menu:Btn>
+
+                    <!--// Customer //-->
+
+                    <Menu:Btn Style="{StaticResource BtnStyle}"
+                          Command="{Binding CustomersCommand}">
+
+                        <Grid>
+
+                            <Image Source="Images/img_customer.png"
+                               Style="{StaticResource Image_Style}" />
+
+                            <TextBlock Text="Customer"
+                                   Style="{StaticResource Text_Style}" />
+
+                        </Grid>
+
+                    </Menu:Btn>
+
+                    <!--// Products //-->
+
+                    <Menu:Btn Style="{StaticResource BtnStyle}"
+                          Command="{Binding ProductsCommand}">
+
+                        <Grid>
+
+                            <Image Source="Images/img_product.png"
+                               Style="{StaticResource Image_Style}" />
+
+                            <TextBlock Text="Products"
+                                   Style="{StaticResource Text_Style}" />
+
+                        </Grid>
+
+                    </Menu:Btn>
+
+                    <!--// Orders //-->
+
+                    <Menu:Btn Style="{StaticResource BtnStyle}"
+                          Command="{Binding OrdersCommand}">
+
+                        <Grid>
+
+                            <Image Source="Images/img_order.png"
+                               Style="{StaticResource Image_Style}" />
+
+                            <TextBlock Text="Orders"
+                                   Style="{StaticResource Text_Style}" />
+
+                        </Grid>
+
+                    </Menu:Btn>
+
+                    <!--// Transactions //-->
+
+                    <Menu:Btn Style="{StaticResource BtnStyle}"
+                          Command="{Binding TransactionsCommand}">
+
+                        <Grid>
+
+                            <Image Source="Images/img_transaction.png"
+                               Style="{StaticResource Image_Style}" />
+
+                            <TextBlock Text="Transactions"
+                                   Style="{StaticResource Text_Style}" />
+
+                        </Grid>
+
+                    </Menu:Btn>
+
+                    <!--// Shipments //-->
+
+                    <Menu:Btn Style="{StaticResource BtnStyle}"
+                          Command="{Binding ShipmentsCommand}">
+
+                        <Grid>
+
+                            <Image Source="Images/img_shipment.png"
+                               Style="{StaticResource Image_Style}" />
+
+                            <TextBlock Text="Shipments"
+                                   Style="{StaticResource Text_Style}" />
+
+                        </Grid>
+
+                    </Menu:Btn>
+
+                    <!--// Settings //-->
+
+                    <Menu:Btn Style="{StaticResource BtnStyle}"
+                          Command="{Binding SettingsCommand}">
+
+                        <Grid>
+
+                            <Image Source="Images/img_setting.png"
+                               Style="{StaticResource Image_Style}" />
+
+                            <TextBlock Text="Settings"
+                                   Style="{StaticResource Text_Style}" />
+
+                        </Grid>
+
+                    </Menu:Btn>
+
+                </StackPanel>
+
+            </Grid>
+
+            <Grid Grid.Row="2">
+
+                <ContentControl x:Name="Pages"
+                            Content="{Binding CurrentView}" />
+
+            </Grid>
+
+        </Grid>
+
+        <Button x:Name="CloseApp"
+            Style="{StaticResource ExitApp}"
+            Click="CloseApp_Click" />
+
     </Grid>
 </Window>

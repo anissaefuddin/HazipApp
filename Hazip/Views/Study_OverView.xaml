@@ -1,10 +1,10 @@
-﻿<Page x:Class="Hazip.Screen.Pages.StudyDataMenu.OverView"
+﻿<Page x:Class="Hazip.Views.Study_OverView"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Hazip.Screen.Pages.StudyDataMenu"
-      xmlns:vm="clr-namespace:Hazip.Screen.ViewModels.StudyData"
+      xmlns:local="clr-namespace:Hazip.Views"
+      xmlns:vm="clr-namespace:Hazip.ViewModels.StudyData"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="OverView">
@@ -14,7 +14,7 @@
     </Page.DataContext>
 
     <Grid>
-        <Border Padding="10">
+        <Border Padding="10" Margin="0,0,0,-185">
             <StackPanel>
                 <TextBlock Text="Overview" FontSize="20" FontWeight="Bold" Margin="0,0,0,20" />
                 <ScrollViewer Height="500">
@@ -112,12 +112,8 @@
                             <TextBlock HorizontalAlignment="Right" FontSize="18" VerticalAlignment="Center" Grid.Column="0" Margin="0,0,10,0" Text="Description" />
                             <TextBox Grid.Column="1" Height="60" Style="{ StaticResource StyleTextBoxBase }" Text="{ Binding ProjectDescription, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
                         </Grid>
-<<<<<<< HEAD
-                        <Button Grid.Row="9" Width="150" Margin="0,0,0,15" Command="{Binding SaveDataOverview}" FontSize="20" >
-                        </Button>
-=======
+
                         <Button Grid.Row="9" Width="150" Margin="0,0,0,15" Command="{ Binding SaveDataOverview, UpdateSourceTrigger=PropertyChanged}"  Content="Save" FontSize="20" />
->>>>>>> b853fa0e621a192e73bf2fb0d2b6afc054766bf6
                     </Grid>
                 </ScrollViewer>
             </StackPanel>

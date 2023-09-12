@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hazip.Models
 {
-    public class DataObject
+    public class DataObjek
     {
         public Overview Overview { get; set; }
         public Settings Settings { get; set; }

@@ -1,36 +1,57 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Hazip.Models;
-using Hazip.Screen.Pages.StudyDataMenu;
 using Newtonsoft.Json;
-using System.IO;
-using System.Net.Http.Json;
-using System.Windows;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
-using Hazip.Models;
 
-namespace Hazip.Screen.ViewModels.StudyData
+namespace Hazip.ViewModels
 {
-
-    public class VM_OverView : ObservableObject
+    class OverviewVM : ObservableObject
     {
-        //public  DataFile dataFile { get; set; }
-
-        //public  Models.DataObject dataObject { get; set; }
-
         #region Constructor
-        public VM_OverView()
+        public ICommand LoadDataCommandOverview { get; private set; }
+        public Overview Overview { get;  set; }
+        public OverviewVM(Overview overview)
         {
             SaveDataOverview = new RelayCommand(saveOverView);
-            //if(App.dataObject != null)
-                //loadDataOverview(App.dataObject.Overview);
+            //LoadDataCommandOverview = new RelayCommand(loadDataMethod);
+            Overview = overview;
         }
+
+
+      /*  private void loadDataMethod()
+        {
+            if (App.dataObject.Overview is not null)
+            {
+                StudyName = App.dataObject.Overview.Study_Name;
+                StudyCoordinator = App.dataObject.Overview.Study_Coordinator;
+                StudyCoordinatorContactInfo = App.dataObject.Overview.Study_Coordinator_Contact_Info;
+                Facility = App.dataObject.Overview.Facility;
+                FacilityLocation = App.dataObject.Overview.Facility_Location;
+                FacilityOwner = App.dataObject.Overview.Facility_Owner;
+                OverviewCompany = App.dataObject.Overview.Overview_Company;
+                Site = App.dataObject.Overview.Site;
+                Plant = App.dataObject.Overview.Plant;
+                UnitGroup = App.dataObject.Overview.Unit__Group;
+                Unit = App.dataObject.Overview.Unit;
+                SubUnit = App.dataObject.Overview.Sub__Unit;
+                ReportNumber = App.dataObject.Overview.Report_Number;
+                ProjectNumber = App.dataObject.Overview.Project_Number;
+                ProjectDescription = App.dataObject.Overview.Project_Description;
+                GeneralNotes = App.dataObject.Overview.General_Notes;
+                
+            }
+        }*/
         #endregion Constructor
 
         #region Property
 
         public ICommand SaveDataOverview { get; }
-       
 
         /// <summary>
         /// Study_Name
@@ -41,6 +62,7 @@ namespace Hazip.Screen.ViewModels.StudyData
             set
             {
                 SetProperty(ref _studyName, value);
+                if (App.dataObject.Overview != null) App.dataObject.Overview.Study_Name = value;
             }
         }
         private string _studyName = string.Empty;
@@ -54,6 +76,7 @@ namespace Hazip.Screen.ViewModels.StudyData
             set
             {
                 SetProperty(ref _studyCoordinator, value);
+                if (App.dataObject.Overview != null) App.dataObject.Overview.Study_Coordinator = value;
             }
         }
         private string _studyCoordinator = string.Empty;
@@ -67,6 +90,7 @@ namespace Hazip.Screen.ViewModels.StudyData
             set
             {
                 SetProperty(ref _studyCoordinatorContactInfo, value);
+                if (App.dataObject.Overview != null) App.dataObject.Overview.Study_Coordinator_Contact_Info = value;
             }
         }
         private string _studyCoordinatorContactInfo = string.Empty;
@@ -80,6 +104,7 @@ namespace Hazip.Screen.ViewModels.StudyData
             set
             {
                 SetProperty(ref _facility, value);
+                if (App.dataObject.Overview != null) App.dataObject.Overview.Facility = value;
             }
         }
         private string _facility = string.Empty;
@@ -93,6 +118,7 @@ namespace Hazip.Screen.ViewModels.StudyData
             set
             {
                 SetProperty(ref _facilityLocation, value);
+                if (App.dataObject.Overview != null) App.dataObject.Overview.Facility_Location = value;
             }
         }
         private string _facilityLocation = string.Empty;
@@ -106,6 +132,7 @@ namespace Hazip.Screen.ViewModels.StudyData
             set
             {
                 SetProperty(ref _facilityOwner, value);
+                if (App.dataObject.Overview != null) App.dataObject.Overview.Facility_Owner = value;
             }
         }
         private string _facilityOwner = string.Empty;
@@ -119,6 +146,7 @@ namespace Hazip.Screen.ViewModels.StudyData
             set
             {
                 SetProperty(ref _OverviewCompany, value);
+                if (App.dataObject.Overview != null) App.dataObject.Overview.Overview_Company = value;
             }
         }
         private string _OverviewCompany = string.Empty;
@@ -132,6 +160,7 @@ namespace Hazip.Screen.ViewModels.StudyData
             set
             {
                 SetProperty(ref _site, value);
+                if (App.dataObject.Overview != null) App.dataObject.Overview.Site = value;
             }
         }
         private string _site = string.Empty;
@@ -145,6 +174,7 @@ namespace Hazip.Screen.ViewModels.StudyData
             set
             {
                 SetProperty(ref _plant, value);
+                if (App.dataObject.Overview != null) App.dataObject.Overview.Plant = value;
             }
         }
         private string _plant = string.Empty;
@@ -158,6 +188,7 @@ namespace Hazip.Screen.ViewModels.StudyData
             set
             {
                 SetProperty(ref _unitGroup, value);
+                if (App.dataObject.Overview != null) App.dataObject.Overview.Unit__Group = value;
             }
         }
         private string _unitGroup = string.Empty;
@@ -171,6 +202,7 @@ namespace Hazip.Screen.ViewModels.StudyData
             set
             {
                 SetProperty(ref _unit, value);
+                if (App.dataObject.Overview != null) App.dataObject.Overview.Unit = value;
             }
         }
         private string _unit = string.Empty;
@@ -184,6 +216,7 @@ namespace Hazip.Screen.ViewModels.StudyData
             set
             {
                 SetProperty(ref _subUnit, value);
+                if (App.dataObject.Overview != null) App.dataObject.Overview.Sub__Unit = value;
             }
         }
         private string _subUnit = string.Empty;
@@ -197,6 +230,7 @@ namespace Hazip.Screen.ViewModels.StudyData
             set
             {
                 SetProperty(ref _reportNumber, value);
+                if (App.dataObject.Overview != null) App.dataObject.Overview.Report_Number = value;
             }
         }
         private string _reportNumber = string.Empty;
@@ -210,6 +244,7 @@ namespace Hazip.Screen.ViewModels.StudyData
             set
             {
                 SetProperty(ref _projectNumber, value);
+                if (App.dataObject.Overview != null) App.dataObject.Overview.Project_Number = value;
             }
         }
         private string _projectNumber = string.Empty;
@@ -223,6 +258,7 @@ namespace Hazip.Screen.ViewModels.StudyData
             set
             {
                 SetProperty(ref _projectDescription, value);
+                if (App.dataObject.Overview != null) App.dataObject.Overview.Project_Description = value;
             }
         }
         private string _projectDescription = string.Empty;
@@ -236,6 +272,7 @@ namespace Hazip.Screen.ViewModels.StudyData
             set
             {
                 SetProperty(ref _generalNotes, value);
+                if (App.dataObject.Overview != null) App.dataObject.Overview.General_Notes = value;
             }
         }
         private string _generalNotes = string.Empty;
@@ -246,31 +283,28 @@ namespace Hazip.Screen.ViewModels.StudyData
 
         private void saveOverView()
         {
-<<<<<<< HEAD
-            Overview overview = new Overview(); 
+            Overview overview = new Overview();
             overview.Study_Name = _studyName;
             overview.Study_Coordinator = _studyCoordinator;
 
-            App.dataObject.Overview = overview;
+            //App.dataObject.Overview = overview;
             App.dataFile.Content = JsonConvert.SerializeObject(App.dataObject);
             //jsonFilePath = "path_to_your_json_file.json"; // Gantilah dengan path file JSON Anda
-            File.WriteAllText(App.dataFile.FilePath, App.dataFile.Content);
+            //File.WriteAllText(App.dataFile.FilePath, App.dataFile.Content);
 
-=======
-            Overview overview = new Overview();
-            
->>>>>>> b853fa0e621a192e73bf2fb0d2b6afc054766bf6
+
+
         }
 
-        public void loadDataOverview(Overview overview)
+        public void loadDataOverview(object parameter)
         {
-            if (overview != null)
-            {
-                StudyName = overview.Study_Name;
-                StudyCoordinator = overview.Study_Coordinator;
 
+            if (parameter != null)
+            {
+                Overview overview = (Overview)parameter;
+                string a = "";
             }
-            
+
         }
 
         #endregion Method

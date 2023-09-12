@@ -1,15 +1,17 @@
 ﻿using Hazip.Models;
-using Hazip.Screen.ViewModels.StudyData;
+using Hazip.ViewModels.StudyData;
+using Microsoft.Win32;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Reflection.Metadata;
 using System.Security.Cryptography.Xml;
 using System.Threading.Tasks;
 using System.Windows;
-using DataObject = Hazip.Models.DataObject;
 
 namespace Hazip
 {
@@ -21,24 +23,19 @@ namespace Hazip
        
         public static DataFile dataFile {  get; set; }
 
-        public static DataObject dataObject { get; set; }
+        public static DataObjek dataObject { get; set; }
 
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-
-            // Inisialisasi variabel global di sini
-            //var mainWindow = new MainWindow();
-            //var vm_Overview = new VM_OverView();
-
             dataFile = new DataFile();
-            dataObject = new DataObject();
+            dataObject = new DataObjek();
+            /*App.dataFile.FilePath = "C:\\Users\\xabo\\Downloads\\Pabrik Limbah - Copy.json";
+            App.dataFile.Content = File.ReadAllText(App.dataFile.FilePath);
+            App.dataObject = JsonConvert.DeserializeObject<DataObjek>(App.dataFile.Content);*/
             
-           // vm_Overview.dataFile = dataFile;
-           // vm_Overview.dataObject = dataObject;
-
-            //mainWindow.DataContext = new { Overview_VM = vm_Overview };
-            //mainWindow.Show();
+            
+          
         }
     }
 }
