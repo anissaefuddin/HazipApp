@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,6 +26,44 @@ namespace Hazip.Views
         public Study()
         {
             InitializeComponent();
+        }
+        private void OnKeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.S)
+            {
+                // Simulasi penyimpanan data (Anda dapat menggantinya dengan logika penyimpanan sesungguhnya)
+                SimulateSaveData();
+                ShowToast("Data berhasil disimpan!");
+                e.Handled = true;
+            }
+        }
+
+        // Simulasikan penyimpanan data
+        private async void SimulateSaveData()
+        {
+            // Serialisasi data kembali ke JSON
+            App.dataFile.Content = JsonConvert.SerializeObject(App.dataObject);
+
+            File.WriteAllText(App.dataFile.FilePath, App.dataFile.Content);
+            // Simulasi penundaan penyimpanan data selama 2 detik
+            await Task.Delay(TimeSpan.FromSeconds(2));
+        }
+
+        // Menampilkan pesan toast
+        private void ShowToast(string message)
+        {
+            ToastGrid.Visibility = Visibility.Visible;
+            ToastGrid.Height = 40;
+
+            // Sembunyikan pesan toast setelah 3 detik
+            Task.Delay(TimeSpan.FromSeconds(3)).ContinueWith(_ =>
+            {
+                Application.Current.Dispatcher.Invoke(() =>
+                {
+                    ToastGrid.Visibility = Visibility.Collapsed;
+                    ToastGrid.Height = 0;
+                });
+            });
         }
     }
 }

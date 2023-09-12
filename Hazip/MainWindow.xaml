@@ -22,7 +22,7 @@
         <!--// Window Border //-->
 
 
-        <Border Background="#212529"
+        <Border Background="#F7FBFC"
             CornerRadius="20" />
 
         <Grid>
@@ -30,8 +30,8 @@
             <!--// Base Grid //-->
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="30" />
-                <RowDefinition Height="100" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="50" />
                 <RowDefinition Height="622" />
             </Grid.RowDefinitions>
 
@@ -44,7 +44,7 @@
                             <MenuItem Header="New" />
                             <MenuItem Header="Open"/>
                             <Separator/>
-                            <MenuItem Header="Exit"/>
+                            <MenuItem Header="Exit" Click="CloseApp_Click"/>
                         </MenuItem>
                         <MenuItem Header="Edit">
                             <MenuItem Header="Cut"/>
@@ -57,8 +57,7 @@
 
             <Grid Grid.Row="1" >
 
-                <Border Background="#272B2F"
-                    CornerRadius="20,0,0,20" />
+                <Border Background="#D6E6F2"/>
 
                 <StackPanel Orientation="Horizontal" Width="1095" HorizontalAlignment="Left">
 
@@ -70,10 +69,10 @@
 
                         <Grid>
 
-                            <Image Source="Images/img_home.png"
+                            <Image Source="Images/icon_study.png"
                                Style="{StaticResource Image_Style}" />
 
-                            <TextBlock Text="Home"
+                            <TextBlock Text="Study Data"
                                    Style="{StaticResource Text_Style}" />
 
                         </Grid>
@@ -87,10 +86,10 @@
 
                         <Grid>
 
-                            <Image Source="Images/img_customer.png"
-                               Style="{StaticResource Image_Style}" />
+                            <Image Source="Images/icon_hazardtype.png"
+                               Style="{StaticResource Image_Style}"  />
 
-                            <TextBlock Text="Customer"
+                            <TextBlock Text="Hazard Type"
                                    Style="{StaticResource Text_Style}" />
 
                         </Grid>
@@ -104,10 +103,10 @@
 
                         <Grid>
 
-                            <Image Source="Images/img_product.png"
+                            <Image Source="Images/icon_guideword.png"
                                Style="{StaticResource Image_Style}" />
 
-                            <TextBlock Text="Products"
+                            <TextBlock Text="Guide Word"
                                    Style="{StaticResource Text_Style}" />
 
                         </Grid>
@@ -121,10 +120,10 @@
 
                         <Grid>
 
-                            <Image Source="Images/img_order.png"
+                            <Image Source="Images/icon_lopaworksheet.png"
                                Style="{StaticResource Image_Style}" />
 
-                            <TextBlock Text="Orders"
+                            <TextBlock Text="Lopa Worksheets"
                                    Style="{StaticResource Text_Style}" />
 
                         </Grid>
@@ -138,10 +137,10 @@
 
                         <Grid>
 
-                            <Image Source="Images/img_transaction.png"
+                            <Image Source="Images/icon_recommendation.png"
                                Style="{StaticResource Image_Style}" />
 
-                            <TextBlock Text="Transactions"
+                            <TextBlock Text="Recommendation"
                                    Style="{StaticResource Text_Style}" />
 
                         </Grid>
@@ -155,10 +154,10 @@
 
                         <Grid>
 
-                            <Image Source="Images/img_shipment.png"
+                            <Image Source="Images/icon_safeguard.png"
                                Style="{StaticResource Image_Style}" />
 
-                            <TextBlock Text="Shipments"
+                            <TextBlock Text="Safeguards"
                                    Style="{StaticResource Text_Style}" />
 
                         </Grid>
@@ -172,10 +171,10 @@
 
                         <Grid>
 
-                            <Image Source="Images/img_setting.png"
+                            <Image Source="Images/icon_riskcriteria.png"
                                Style="{StaticResource Image_Style}" />
 
-                            <TextBlock Text="Settings"
+                            <TextBlock Text="Risk Criteria"
                                    Style="{StaticResource Text_Style}" />
 
                         </Grid>
@@ -195,9 +194,6 @@
 
         </Grid>
 
-        <Button x:Name="CloseApp"
-            Style="{StaticResource ExitApp}"
-            Click="CloseApp_Click" />
-
     </Grid>
+   
 </Window>

@@ -7,7 +7,9 @@
              xmlns:vm="clr-namespace:Hazip.ViewModels"
              mc:Ignorable="d"
              d:DesignHeight="600"
-             d:DesignWidth="622">
+             d:DesignWidth="622"
+             KeyDown="OnKeyDown"
+             >
 
     <UserControl.DataContext>
         <vm:StudyVM x:Name="StudyVM" />
@@ -39,5 +41,9 @@
                 </TabControl>
             </StackPanel>
         </Border>
+        <Grid Name="ToastGrid" Background="Green" VerticalAlignment="Top" Height="0" Visibility="Collapsed" Opacity="0.8">
+            <TextBlock Text="Data berhasil disimpan!" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" />
+        </Grid>
     </Grid>
+    
 </UserControl>

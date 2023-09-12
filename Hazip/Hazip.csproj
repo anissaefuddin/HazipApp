@@ -10,6 +10,13 @@
   <ItemGroup>
     <None Remove="images\customer_page.png" />
     <None Remove="images\home_page.png" />
+    <None Remove="images\icon_guideword.png" />
+    <None Remove="images\icon_hazardtype.png" />
+    <None Remove="images\icon_lopaworksheet.png" />
+    <None Remove="images\icon_recommendation.png" />
+    <None Remove="images\icon_riskcriteria.png" />
+    <None Remove="images\icon_safeguard.png" />
+    <None Remove="images\icon_study.png" />
     <None Remove="images\img_customer.png" />
     <None Remove="images\img_home.png" />
     <None Remove="images\img_order.png" />
@@ -31,6 +38,27 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="images\home_page.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\icon_guideword.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\icon_hazardtype.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\icon_lopaworksheet.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\icon_recommendation.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\icon_riskcriteria.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\icon_safeguard.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\icon_study.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="images\img_customer.png">

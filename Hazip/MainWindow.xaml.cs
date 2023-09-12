@@ -10,6 +10,9 @@ using System.Runtime.InteropServices;
 using Hazip.Views.Pages;
 using System.Windows.Controls;
 using Hazip.ViewModels;
+using System.Windows.Input;
+using CommunityToolkit.Mvvm.Input;
+using System.Threading.Tasks;
 
 namespace Hazip
 {
@@ -42,13 +45,19 @@ namespace Hazip
                     MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
-            
+
         }
 
+        private bool CanSave()
+        {
+            // Di sini Anda dapat menentukan apakah tindakan Save seharusnya diizinkan
+            return true; // Izinkan selalu untuk contoh ini
+        }
         private void CloseApp_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
+       
 
     }
 }

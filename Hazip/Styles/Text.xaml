@@ -11,11 +11,11 @@
         <Setter Property="HorizontalAlignment"
                 Value="Left" />
         <Setter Property="Foreground"
-                Value="#DBDBDB" />
+                Value="#769FCD" />
         <Setter Property="FontSize"
-                Value="18" />
+                Value="12" />
         <Setter Property="Margin"
-                Value="70,0,0,0" />
+                Value="40,0,0,0" />
 
     </Style>
     
