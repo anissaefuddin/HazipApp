@@ -58,7 +58,10 @@ namespace Hazip.ViewModels
         /// </summary>
         public string StudyName
         {
-            get => _studyName;
+            get
+            {
+                return _studyName;
+            }
             set
             {
                 SetProperty(ref _studyName, value);
@@ -292,7 +295,7 @@ namespace Hazip.ViewModels
             //jsonFilePath = "path_to_your_json_file.json"; // Gantilah dengan path file JSON Anda
             //File.WriteAllText(App.dataFile.FilePath, App.dataFile.Content);
 
-
+            //Overview overview = new Overview();
 
         }
 
