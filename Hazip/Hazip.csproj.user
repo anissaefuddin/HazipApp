@@ -39,6 +39,9 @@
     <Page Update="Views\StudyDataMenu\PageIndex.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\Study_TeamMember.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\Transactions.xaml">
       <SubType>Designer</SubType>
     </Page>
