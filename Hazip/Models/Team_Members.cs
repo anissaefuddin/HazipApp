@@ -19,7 +19,7 @@ Phone_Number	:
 E__Mail_Address	:	
 Team_Member_Comments	:	
 */
-        public string ID { get; set; }
+        public string ID { get; set; } = Guid.NewGuid().ToString();
         public string Name { get; set; }
         public string Company { get; set; }
         public string Title { get; set; }

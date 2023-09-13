@@ -18,16 +18,16 @@ namespace Hazip.ViewModels
         {
             loadDataTeamMember();
             //new RelayCommand<string>(ExecuteMyCommand);
-            AddCommand = new RelayCommand<Team_Members>(AddMember);
-            RemoveCommand = new RelayCommand<Team_Members>(RemoveMember);
+            AddCommand = new RelayCommand(AddMember);
+            RemoveCommand = new RelayCommand(RemoveMember);
             EditCommand = new RelayCommand(EditSiswa);
         }
         #endregion
 
         #region Property
         private Team_Members selectedMember;
-        private ObservableCollection<Team_Members> listTeamMeber;
-       /* public ObservableCollection<Team_Members> ListTeamMeber
+        private ObservableCollection<Team_Members> listTeamMember;
+       /* public ObservableCollection<Team_Members> listTeamMember
         {
             get => _ListTeamMember;
             set => SetProperty(ref _ListTeamMember, value);
@@ -36,8 +36,8 @@ namespace Hazip.ViewModels
 */
         public ObservableCollection<Team_Members> ListTeamMember
         {
-            get { return listTeamMeber; }
-            set { listTeamMeber = value; OnPropertyChanged(); }
+            get { return listTeamMember; }
+            set { listTeamMember = value; OnPropertyChanged(); App.dataObject.Team_Members = listTeamMember.ToList(); }
         }
 
         public Team_Members SelectedMember
@@ -64,18 +64,21 @@ namespace Hazip.ViewModels
             }
 
         }
-        private void AddMember(object parameter)
+        private void AddMember()
         {
             Team_Members newMember = new Team_Members();
-            listTeamMeber.Add(newMember);
+            listTeamMember.Add(newMember);
+            App.dataObject.Team_Members.Add(listTeamMember.Last());
             SelectedMember = newMember;
         }
 
-        private void RemoveMember(object parameter)
+        private void RemoveMember()
         {
             if (SelectedMember != null)
             {
-                ListTeamMember.Remove(SelectedMember);
+                Team_Members selectedTempMember = SelectedMember;
+                ListTeamMember.Remove(selectedTempMember);
+                App.dataObject.Team_Members.Remove(selectedTempMember);
                 SelectedMember = null;
             }
         }
