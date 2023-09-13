@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 using System;
 using System.IO;
 using System.Windows;
-using Hazip.ViewModels.StudyData;
+using Hazip.ViewModels;
 using Hazip.Services;
 using System.Runtime.InteropServices;
 using Hazip.Views.Pages;

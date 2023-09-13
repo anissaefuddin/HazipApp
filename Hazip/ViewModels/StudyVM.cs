@@ -1,6 +1,5 @@
 ﻿using Hazip.Models;
 using Hazip.Utilities;
-using Hazip.ViewModels.StudyData;
 using Hazip.Views;
 using System;
 using System.Collections.Generic;

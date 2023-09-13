@@ -7,11 +7,10 @@ using System.IO;
 using System.Net.Http.Json;
 using System.Windows;
 using System.Windows.Input;
-using Hazip.ViewModels;
 using System;
 using Newtonsoft.Json.Linq;
 
-namespace Hazip.ViewModels.StudyData
+namespace Hazip.ViewModels
 {
 
     public class VM_OverView : ObservableObject
@@ -21,7 +20,7 @@ namespace Hazip.ViewModels.StudyData
         {
             SaveDataOverview = new RelayCommand(saveOverView);
             loadDataMethod();
-            
+
         }
         #endregion Constructor
 
@@ -38,7 +37,7 @@ namespace Hazip.ViewModels.StudyData
             set
             {
                 SetProperty(ref _studyName, value);
-                if (App.dataObject.Overview!=null) App.dataObject.Overview.Study_Name = value;
+                if (App.dataObject.Overview != null) App.dataObject.Overview.Study_Name = value;
             }
         }
         private string _studyName = string.Empty;
@@ -178,7 +177,7 @@ namespace Hazip.ViewModels.StudyData
             set
             {
                 SetProperty(ref _unit, value);
-                if (App.dataObject.Overview != null) App.dataObject.Overview.Unit = value;   
+                if (App.dataObject.Overview != null) App.dataObject.Overview.Unit = value;
             }
         }
         private string _unit = string.Empty;
@@ -259,10 +258,10 @@ namespace Hazip.ViewModels.StudyData
 
         private void saveOverView()
         {
-            Overview overview = new Overview(); 
+            Overview overview = new Overview();
             overview.Study_Name = _studyName;
             overview.Study_Coordinator = _studyCoordinator;
-            
+
             //App.dataObject.Overview = overview;
             App.dataFile.Content = JsonConvert.SerializeObject(App.dataObject);
             //jsonFilePath = "path_to_your_json_file.json"; // Gantilah dengan path file JSON Anda

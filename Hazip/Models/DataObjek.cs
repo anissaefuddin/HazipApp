@@ -10,9 +10,9 @@ namespace Hazip.Models
     {
         public Overview Overview { get; set; }
         public Settings Settings { get; set; }
-        public List<Team_Members> TeamMembers { get; set; }
+        public List<Team_Members> Team_Members { get; set; }
         public List<Sessions> Sessions { get; set; }
-        public List<Team_Members_Sessions> TeamMembers_Sessions { get; set; }
+        public List<Team_Members_Sessions> Team_Members_Sessions { get; set; }
 
         public List<Revalidation_History> Revalidation_History { get; set; }
         public List<Nodes> Nodes { get; set; }

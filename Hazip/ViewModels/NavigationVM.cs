@@ -27,7 +27,7 @@ namespace Hazip.ViewModels
         public ICommand SettingsCommand { get; set; }
 
         private void Home(object obj) => CurrentView = new StudyVM();
-        private void Customer(object obj) => CurrentView = new CustomerVM();
+        private void Customer(object obj) => CurrentView = new StudyVM();
         private void Product(object obj) => CurrentView = new ProductVM();
         private void Order(object obj) => CurrentView = new OrderVM();
         private void Transaction(object obj) => CurrentView = new TransactionVM();

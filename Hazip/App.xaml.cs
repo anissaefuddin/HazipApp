@@ -1,5 +1,5 @@
 ﻿using Hazip.Models;
-using Hazip.ViewModels.StudyData;
+using Hazip.ViewModels;
 using Microsoft.Win32;
 using Newtonsoft.Json;
 using System;

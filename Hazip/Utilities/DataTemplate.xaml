@@ -11,8 +11,8 @@
         <view:Study />
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type vm:CustomerVM}">
-        <view:Customers />
+    <DataTemplate DataType="{x:Type vm:VM_TeamMember}">
+        <view:Study_TeamMember />
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type vm:ProductVM}">
