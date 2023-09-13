@@ -15,11 +15,6 @@ using OfficeOpenXml.FormulaParsing.Excel.Functions.RefAndLookup;
 using OfficeOpenXml.FormulaParsing.Excel.Functions.Information;
 using System.ComponentModel;
 using System.Windows.Data;
-using System.Collections.ObjectModel;
-using System.Windows.Input;
-using System.ComponentModel;
-using System.Windows.Data;
-using System.Linq;
 using System.Windows.Controls;
 using System.Windows;
 
@@ -31,12 +26,12 @@ namespace Hazip.ViewModels
         public VM_TeamMember()
         {
             loadDataTeamMember();
-            WidthTable = 500;
+            WidthTable = 600;
             AddCommand = new RelayCommand(AddMember);
-            RemoveCommand = new RelayCommand(RemoveMember, () => SelectedMember != null);
+            RemoveCommand = new RelayCommand(RemoveMember);
             PrintCommand = new RelayCommand(PrintToExcel);
-            MoveUpCommand = new RelayCommand(MoveUp, () => SelectedMember != null);
-            MoveDownCommand = new RelayCommand(MoveDown, () => SelectedMember != null);
+            MoveUpCommand = new RelayCommand(MoveUp);
+            MoveDownCommand = new RelayCommand(MoveDown);
             ZoomInCommand = new RelayCommand(ZoomIn);
             ZoomOutCommand = new RelayCommand(ZoomOut);
 
@@ -47,7 +42,7 @@ namespace Hazip.ViewModels
 
         #region Property
 
-        private Team_Members selectedMember;
+        private Team_Members _selectedData;
         private int _widthTable;
         private ObservableCollection<Team_Members> listTeamMember;
         private string _searchText;
@@ -76,10 +71,13 @@ namespace Hazip.ViewModels
             set { listTeamMember = value; OnPropertyChanged(); App.dataObject.Team_Members = listTeamMember.ToList(); }
         }
 
-        public Team_Members SelectedMember
+        public Team_Members SelectedData
         {
-            get { return selectedMember; }
-            set { selectedMember = value; OnPropertyChanged(); }
+            get { return _selectedData; }
+            set
+            {
+                SetProperty(ref _selectedData, value);
+            }
         }
 
         public ICommand AddCommand { get; private set; }
@@ -94,6 +92,7 @@ namespace Hazip.ViewModels
 
 
         #region Method
+
         private void loadDataTeamMember()
         {
             var appData = App.dataObject.Team_Members;
@@ -108,17 +107,21 @@ namespace Hazip.ViewModels
             Team_Members newMember = new Team_Members();
             listTeamMember.Add(newMember);
             App.dataObject.Team_Members.Add(listTeamMember.Last());
-            SelectedMember = newMember;
+            SelectedData = newMember;
         }
 
         private void RemoveMember()
         {
-            if (SelectedMember != null)
+            if (SelectedData != null)
             {
-                Team_Members selectedTempMember = SelectedMember;
+                Team_Members selectedTempMember = SelectedData;
                 ListTeamMember.Remove(selectedTempMember);
                 App.dataObject.Team_Members.Remove(selectedTempMember);
-                SelectedMember = null;
+                SelectedData = null;
+            }
+            else
+            {
+                MessageBox.Show("Please select data first!");
             }
         }
 
@@ -165,28 +168,41 @@ namespace Hazip.ViewModels
 
         private void MoveUp()
         {
-            int currentIndex = listTeamMember.IndexOf(selectedMember);
-            int currentIndexGlobal = App.dataObject.Team_Members.IndexOf(selectedMember);
-            Team_Members movedObject = App.dataObject.Team_Members[currentIndexGlobal];
-            
-            if (currentIndex > 0)
+            if (SelectedData != null)
             {
-                listTeamMember.Move(currentIndex, currentIndex - 1);
-                App.dataObject.Team_Members.RemoveAt(currentIndexGlobal);
-                App.dataObject.Team_Members.Insert(currentIndexGlobal - 1, movedObject);
+                int currentIndex = listTeamMember.IndexOf(SelectedData);
+                int currentIndexGlobal = App.dataObject.Team_Members.IndexOf(SelectedData);
+                Team_Members movedObject = App.dataObject.Team_Members[currentIndexGlobal];
+
+                if (currentIndex > 0)
+                {
+                    listTeamMember.Move(currentIndex, currentIndex - 1);
+                    App.dataObject.Team_Members.RemoveAt(currentIndexGlobal);
+                    App.dataObject.Team_Members.Insert(currentIndexGlobal - 1, movedObject);
+                }
+            }else
+            {
+                MessageBox.Show("Please select data first!");
             }
         }
 
         private void MoveDown()
         {
-            int currentIndex = listTeamMember.IndexOf(selectedMember);
-            int currentIndexGlobal = App.dataObject.Team_Members.IndexOf(selectedMember);
-            Team_Members movedObject = App.dataObject.Team_Members[currentIndexGlobal];
-            if (currentIndex < listTeamMember.Count - 1)
+            if (SelectedData != null)
             {
-                listTeamMember.Move(currentIndex, currentIndex + 1);
-                App.dataObject.Team_Members.RemoveAt(currentIndexGlobal);
-                App.dataObject.Team_Members.Insert(currentIndexGlobal + 1, movedObject);
+                int currentIndex = listTeamMember.IndexOf(SelectedData);
+                int currentIndexGlobal = App.dataObject.Team_Members.IndexOf(SelectedData);
+                Team_Members movedObject = App.dataObject.Team_Members[currentIndexGlobal];
+                if (currentIndex < listTeamMember.Count - 1)
+                {
+                    listTeamMember.Move(currentIndex, currentIndex + 1);
+                    App.dataObject.Team_Members.RemoveAt(currentIndexGlobal);
+                    App.dataObject.Team_Members.Insert(currentIndexGlobal + 1, movedObject);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select data first!");
             }
         }
         #endregion
@@ -217,14 +233,14 @@ namespace Hazip.ViewModels
         private void ZoomIn()
         {
 
-            WidthTable = WidthTable + 50;
+            WidthTable = WidthTable + 60;
 
         }
 
         private void ZoomOut()
         {
 
-            WidthTable = WidthTable - 50;
+            WidthTable = WidthTable - 60;
 
         }
 

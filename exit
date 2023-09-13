@@ -1,0 +1,168 @@
+[33mcommit 2f468c12f9f439439e3b95fd163c777cee810822[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: anissaefuddin <anissaefuddin@gmail.com>
+Date:   Wed Sep 13 17:06:33 2023 +0700
+
+    add function print, zoom in, zoom out, move up, move down on study_team members
+
+[33mcommit 541fab0e4ba4e6ce6afeac750239a85272ffb360[m
+Author: anissaefuddin <anissaefuddin@gmail.com>
+Date:   Wed Sep 13 12:49:15 2023 +0700
+
+    add function remove, add & edit member
+
+[33mcommit 9d99cc98944f7a6de7138fed8564cbbbae5dabae[m
+Author: anissaefuddin <anissaefuddin@gmail.com>
+Date:   Wed Sep 13 12:20:51 2023 +0700
+
+    menampilkan data team member d grid view & penyesuaian pengahapusan folder ViewModel.StudyData
+
+[33mcommit c94b2e754b1180fcd9c83d9b1c3c54225ff04af1[m
+Merge: 847c59d 908320f
+Author: anissaefuddin <anissaefuddin@gmail.com>
+Date:   Wed Sep 13 00:10:48 2023 +0700
+
+    Merge branch 'main' of https://github.com/anissaefuddin/HazipApp
+
+[33mcommit 847c59d52eeed4e4e524faed79164668b8f3a349[m
+Author: anissaefuddin <anissaefuddin@gmail.com>
+Date:   Wed Sep 13 00:09:57 2023 +0700
+
+    change study+overview page to usercontrol and fix bug on transaction page
+
+[33mcommit f2bc75f2240005326a260447d49eff8c67c7cb65[m
+Author: anissaefuddin <anissaefuddin@gmail.com>
+Date:   Tue Sep 12 23:33:18 2023 +0700
+
+    add save file on menu study data, update some icon and style menu
+
+[33mcommit 908320f02a0ed0cc6ab0f30f191dd43e18c51a06[m
+Merge: 24237ee f2bc75f
+Author: Ahmad31 <ahmadanwar@datindo.co.id>
+Date:   Tue Sep 12 23:30:10 2023 +0700
+
+    Merge branch 'main' of https://github.com/anissaefuddin/HazipApp
+
+[33mcommit 24237eefd7995ee0fdf57788a19449a9105aca9a[m
+Author: Ahmad31 <ahmadanwar@datindo.co.id>
+Date:   Tue Sep 12 23:29:59 2023 +0700
+
+    add View study_teamMember
+
+[33mcommit 46b0de8f90415d8db6db470cf09d2f4036786b6d[m
+Merge: b49fe98 1d0bd18
+Author: anissaefuddin <anissaefuddin@gmail.com>
+Date:   Tue Sep 12 21:51:43 2023 +0700
+
+    merging conflig overview vm ok
+
+[33mcommit b49fe982adb07219b38542917df5914be099fe55[m
+Author: anissaefuddin <anissaefuddin@gmail.com>
+Date:   Tue Sep 12 21:46:21 2023 +0700
+
+    ubah struktur aplikasi
+
+[33mcommit 1d0bd18c5a890a7450bc4a022ee9564dbcdd6f7a[m
+Author: Ahmad Anwar <ahmadanwar@datindo.co.id>
+Date:   Mon Sep 11 09:22:15 2023 +0700
+
+    perbaiakan vm konflik
+
+[33mcommit 48d9f2d2115dd0fdc45525262170a1737bbb6ec7[m
+Author: Ahmad Anwar <ahmadanwar@datindo.co.id>
+Date:   Mon Sep 11 09:17:46 2023 +0700
+
+    perbaiakan konflik
+
+[33mcommit d1f4c7b6b6f831dc4bba2228bbab6a38b47862f9[m
+Merge: ce6aeb8 b853fa0
+Author: anissaefuddin <anissaefuddin@gmail.com>
+Date:   Sun Sep 10 21:14:48 2023 +0700
+
+    Merge branch 'main' of https://github.com/anissaefuddin/HazipApp
+
+[33mcommit ce6aeb898f617ec9b9a8d53430067b4c2f52ac25[m
+Author: anissaefuddin <anissaefuddin@gmail.com>
+Date:   Sun Sep 10 21:05:05 2023 +0700
+
+    add some changes on open dialog
+
+[33mcommit b853fa0e621a192e73bf2fb0d2b6afc054766bf6[m
+Author: Ahmad31 <ahmadanwar@datindo.co.id>
+Date:   Sun Sep 10 13:02:34 2023 +0700
+
+    update binding button save data overview pada menu StudyData
+
+[33mcommit 79c2c877eca751f719f7415214fa13f7f51b0067[m
+Author: Ahmad31 <ahmadanwar@datindo.co.id>
+Date:   Sun Sep 10 12:54:56 2023 +0700
+
+    update view dan view_model menu studyData-OverView
+
+[33mcommit 84ed24acdfaedb58cc4162e63d5bf66878eb2e06[m
+Author: anissaefuddin <anissaefuddin@gmail.com>
+Date:   Sat Sep 9 23:01:29 2023 +0700
+
+    add some models with fixing bugs on it and add open json file with desentralized to global variable object class
+
+[33mcommit 0bfae8d56802923db991132ad00658a616ad7f72[m
+Author: Ahmad Anwar <ahmadanwar@datindo.co.id>
+Date:   Sat Sep 9 16:48:37 2023 +0700
+
+    update page studyData
+
+[33mcommit b11394236ee7a864d8e369d7c837d3593dfbcdef[m
+Merge: 249b59d e4fb0c1
+Author: Ahmad Anwar <ahmadanwar@datindo.co.id>
+Date:   Sat Sep 9 15:44:33 2023 +0700
+
+    Merge branch 'main' of https://github.com/anissaefuddin/HazipApp
+
+[33mcommit 249b59d9449959deba0f504d3aebb4ecd97ac328[m
+Author: Ahmad Anwar <ahmadanwar@datindo.co.id>
+Date:   Sat Sep 9 15:44:23 2023 +0700
+
+    update Screen page
+
+[33mcommit e4fb0c166806148bef79643de295135956d4c548[m
+Author: anissaefuddin <anissaefuddin@gmail.com>
+Date:   Sat Sep 9 15:15:36 2023 +0700
+
+    tambah class objects
+
+[33mcommit 90fa1e4b708421edabf72173be5d2a54b29ba6b7[m
+Author: anissaefuddin <anissaefuddin@gmail.com>
+Date:   Sat Sep 9 13:50:31 2023 +0700
+
+    Delete .vs directory
+
+[33mcommit 7bf6927a7c9266cb14bcd8f99a9a8064221eb325[m
+Author: anissaefuddin <anissaefuddin@gmail.com>
+Date:   Sat Sep 9 13:44:19 2023 +0700
+
+    tambah cases class
+
+[33mcommit 1b9a190c8d674d11ad3912d216f25ee2806848d7[m
+Author: anissaefuddin <anissaefuddin@gmail.com>
+Date:   Sat Sep 9 13:07:15 2023 +0700
+
+    add folder
+
+[33mcommit 9b1db0092fa247a5c67d62e3e26569c76cecb40f[m
+Author: anissaefuddin <anissaefuddin@gmail.com>
+Date:   Sat Sep 9 13:05:33 2023 +0700
+
+    Delete Hazip/obj directory
+    
+    ok
+
+[33mcommit 0b7007bdb9a5fe45342dfcb88caa3f8c05973c89[m
+Author: anissaefuddin <anissaefuddin@gmail.com>
+Date:   Sat Sep 9 13:04:20 2023 +0700
+
+    add gitignore
+
+[33mcommit daf82e253d58479fd64983b37f4f5582eb579acf[m[33m ([m[1;32mmaster[m[33m)[m
+Author: anissaefuddin <anissaefuddin@gmail.com>
+Date:   Sat Sep 9 12:57:00 2023 +0700
+
+    init

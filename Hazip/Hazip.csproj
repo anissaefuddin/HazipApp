@@ -8,6 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="images\arrow-down-square-fill.svg" />
+    <None Remove="images\arrow-up-square-fill.svg" />
     <None Remove="images\customer_page.png" />
     <None Remove="images\icon_guideword.png" />
     <None Remove="images\icon_hazardtype.png" />
@@ -17,9 +19,14 @@
     <None Remove="images\icon_safeguard.png" />
     <None Remove="images\icon_study.png" />
     <None Remove="images\order_page.png" />
+    <None Remove="images\plus-circle-fill.svg" />
+    <None Remove="images\printer-fill.svg" />
     <None Remove="images\product_page.png" />
     <None Remove="images\setting_page.png" />
     <None Remove="images\shipment_page.png" />
+    <None Remove="images\trash-fill.svg" />
+    <None Remove="images\zoom-in.svg" />
+    <None Remove="images\zoom-out.svg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -65,6 +72,30 @@
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
     <PackageReference Include="CSC.EPPlus.Core" Version="1.5.6" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="images\arrow-down-square-fill.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\arrow-up-square-fill.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\plus-circle-fill.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\printer-fill.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\trash-fill.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\zoom-in.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\zoom-out.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>
