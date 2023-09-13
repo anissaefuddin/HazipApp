@@ -20,7 +20,7 @@ Equipment_Tags	:
 Location	:	
 Node_Comments	:	
 */
-        public string ID { get; set; }
+        public string ID { get; set; } = Guid.NewGuid().ToString();
         public string Node_Description { get; set; }
         public string Intention { get; set; }
         public string Boundary { get; set; }

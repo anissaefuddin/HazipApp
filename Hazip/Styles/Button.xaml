@@ -105,16 +105,17 @@
     </Style>
     <Style x:Key="IconStyle"
        TargetType="Button">
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="Background" Value="blue" />
+        <Setter Property="BorderBrush" Value="Green" />
         <Setter Property="Foreground" Value="Black" />
-        <Setter Property="Padding" Value="5" />
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Padding" Value="10"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Grid>
-                        <Viewbox Width="26" Height="26">
-                            <ContentPresenter />
+                        <Viewbox Width="24" Height="24">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Viewbox>
                     </Grid>
                 </ControlTemplate>

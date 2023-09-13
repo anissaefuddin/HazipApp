@@ -42,7 +42,7 @@
                     <Menu>
                         <MenuItem Header="File">
                             <MenuItem Header="New" />
-                            <MenuItem Header="Open"/>
+                            <MenuItem Header="Open" Click="OpenFile_Click"/>
                             <Separator/>
                             <MenuItem Header="Exit" Click="CloseApp_Click"/>
                         </MenuItem>
@@ -82,7 +82,7 @@
                     <!--// Customer //-->
 
                     <Menu:Btn Style="{StaticResource BtnStyle}"
-                          Command="{Binding CustomersCommand}">
+                          Command="{Binding NodesCommand}">
 
                         <Grid>
 

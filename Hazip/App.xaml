@@ -13,7 +13,7 @@
                 <ResourceDictionary Source="Styles/Button.xaml" />
                 <ResourceDictionary Source="Utilities/DataTemplate.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            <Canvas x:Key="AddIcon" Width="26" Height="26" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+            <Canvas x:Key="AddIcon" Width="30" Height="30" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
                 <Path Fill="#393E46" Data="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
             </Canvas>
 

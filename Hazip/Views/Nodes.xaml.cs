@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,11 +18,11 @@ using System.Windows.Shapes;
 namespace Hazip.Views
 {
     /// <summary>
-    /// Interaction logic for Home.xaml
+    /// Interaction logic for Nodes.xaml
     /// </summary>
-    public partial class Study : UserControl
+    public partial class Nodes : UserControl
     {
-        public Study()
+        public Nodes()
         {
             InitializeComponent();
         }
@@ -35,6 +34,7 @@ namespace Hazip.Views
                 SimulateSaveData();
                 ShowToast("Data berhasil disimpan!");
                 e.Handled = true;
+                new Nodes();
             }
         }
 
@@ -45,8 +45,8 @@ namespace Hazip.Views
             App.dataFile.Content = JsonConvert.SerializeObject(App.dataObject);
 
             File.WriteAllText(App.dataFile.FilePath, App.dataFile.Content);
-            new Study();
             // Simulasi penundaan penyimpanan data selama 2 detik
+           
             await Task.Delay(TimeSpan.FromSeconds(2));
         }
 
