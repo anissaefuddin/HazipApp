@@ -117,7 +117,7 @@ namespace Hazip.ViewModels
                 Team_Members selectedTempMember = SelectedData;
                 ListTeamMember.Remove(selectedTempMember);
                 App.dataObject.Team_Members.Remove(selectedTempMember);
-                SelectedData = null;
+                SelectedData = new Team_Members();
             }
             else
             {
