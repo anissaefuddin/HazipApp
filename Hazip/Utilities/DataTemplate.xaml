@@ -15,8 +15,8 @@
         <view:Study_TeamMember />
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type vm:ProductVM}">
-        <view:Products />
+    <DataTemplate DataType="{x:Type vm:VM_Nodes}">
+        <view:Nodes />
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type vm:OrderVM}">

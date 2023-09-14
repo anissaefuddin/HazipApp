@@ -13,7 +13,7 @@
     <Grid>
         <Border Padding="10" Margin="0,0,0,-185">
             <StackPanel>
-                <TextBlock Text="Overview" FontSize="20" FontWeight="Bold" Margin="0,0,0,20" />
+                <TextBlock Text="Overview" FontSize="18" FontWeight="Bold" Margin="0,0,0,20" />
                 <ScrollViewer Height="500">
                     <Grid>
                         <Grid.RowDefinitions>
@@ -34,7 +34,7 @@
                                 <ColumnDefinition Width="180"/>
                                 <ColumnDefinition Width="450"/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock HorizontalAlignment="Right" FontSize="18" VerticalAlignment="Center" Grid.Column="0" Margin="0,0,10,0" Text="Study Name" />
+                            <TextBlock HorizontalAlignment="Right" FontSize="12" VerticalAlignment="Center" Grid.Column="0" Margin="0,0,10,0" Text="Study Name" />
                             <TextBox Style="{ StaticResource StyleTextBoxBase }" Grid.Column="1"  Text="{ Binding StudyName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
                         </Grid>
 
@@ -43,7 +43,7 @@
                                 <ColumnDefinition Width="180"/>
                                 <ColumnDefinition Width="450"/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock HorizontalAlignment="Right" FontSize="18" VerticalAlignment="Center" Grid.Column="0" Margin="0,0,10,0" Text="Study Coordinator" />
+                            <TextBlock HorizontalAlignment="Right" FontSize="12" VerticalAlignment="Center" Grid.Column="0" Margin="0,0,10,0" Text="Study Coordinator" />
                             <TextBox Grid.Column="1" Style="{ StaticResource StyleTextBoxBase }" Text="{ Binding StudyCoordinator, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  />
                         </Grid>
 
@@ -52,7 +52,7 @@
                                 <ColumnDefinition Width="180"/>
                                 <ColumnDefinition Width="450"/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" FontSize="18" VerticalAlignment="Center" Grid.Column="0" Margin="0,0,10,0" Text="Study Coordinator Contact Info" />
+                            <TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" FontSize="12" VerticalAlignment="Center" Grid.Column="0" Margin="0,0,10,0" Text="Study Coordinator Contact Info" />
                             <TextBox Grid.Column="1"  Style="{ StaticResource StyleTextBoxBase }" Text="{ Binding StudyCoordinatorContactInfo, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
                         </Grid>
 
@@ -61,7 +61,7 @@
                                 <ColumnDefinition Width="180"/>
                                 <ColumnDefinition Width="450"/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock HorizontalAlignment="Right" FontSize="18" VerticalAlignment="Center" Grid.Column="0" Margin="0,0,10,0" Text="Facility" />
+                            <TextBlock HorizontalAlignment="Right" FontSize="12" VerticalAlignment="Center" Grid.Column="0" Margin="0,0,10,0" Text="Facility" />
                             <TextBox Grid.Column="1" Style="{ StaticResource StyleTextBoxBase }" Text="{ Binding Facility, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  />
                         </Grid>
 
@@ -70,7 +70,7 @@
                                 <ColumnDefinition Width="180"/>
                                 <ColumnDefinition Width="450"/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock HorizontalAlignment="Right" FontSize="18" VerticalAlignment="Center" Grid.Column="0" Margin="0,0,10,0" Text="Facility Owner" />
+                            <TextBlock HorizontalAlignment="Right" FontSize="12" VerticalAlignment="Center" Grid.Column="0" Margin="0,0,10,0" Text="Facility Owner" />
                             <TextBox Grid.Column="1" Style="{ StaticResource StyleTextBoxBase }" Text="{ Binding FacilityOwner, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  />
                         </Grid>
 
@@ -79,7 +79,7 @@
                                 <ColumnDefinition Width="180"/>
                                 <ColumnDefinition Width="450"/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock HorizontalAlignment="Right" FontSize="18" VerticalAlignment="Center" Grid.Column="0" Margin="0,0,10,0" Text="Unit" />
+                            <TextBlock HorizontalAlignment="Right" FontSize="12" VerticalAlignment="Center" Grid.Column="0" Margin="0,0,10,0" Text="Unit" />
                             <TextBox Grid.Column="1" Style="{ StaticResource StyleTextBoxBase }" Text="{ Binding Unit, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  />
                         </Grid>
 
@@ -88,7 +88,7 @@
                                 <ColumnDefinition Width="180"/>
                                 <ColumnDefinition Width="450"/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock HorizontalAlignment="Right" FontSize="18" VerticalAlignment="Center" Grid.Column="0" Margin="0,0,10,0" Text="Report Number" />
+                            <TextBlock HorizontalAlignment="Right" FontSize="12" VerticalAlignment="Center" Grid.Column="0" Margin="0,0,10,0" Text="Report Number" />
                             <TextBox Grid.Column="1" Style="{ StaticResource StyleTextBoxBase }" Text="{ Binding ReportNumber, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
                         </Grid>
 
@@ -97,7 +97,7 @@
                                 <ColumnDefinition Width="180"/>
                                 <ColumnDefinition Width="450"/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock HorizontalAlignment="Right" FontSize="18" VerticalAlignment="Center" Grid.Column="0" Margin="0,0,10,0" Text="Project Number" />
+                            <TextBlock HorizontalAlignment="Right" FontSize="12" VerticalAlignment="Center" Grid.Column="0" Margin="0,0,10,0" Text="Project Number" />
                             <TextBox Grid.Column="1" Style="{ StaticResource StyleTextBoxBase }" Text="{ Binding ProjectNumber, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  />
                         </Grid>
 
@@ -106,11 +106,9 @@
                                 <ColumnDefinition Width="180"/>
                                 <ColumnDefinition Width="450"/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock HorizontalAlignment="Right" FontSize="18" VerticalAlignment="Center" Grid.Column="0" Margin="0,0,10,0" Text="Description" />
+                            <TextBlock HorizontalAlignment="Right" FontSize="12" VerticalAlignment="Center" Grid.Column="0" Margin="0,0,10,0" Text="Description" />
                             <TextBox Grid.Column="1" Height="60" Style="{ StaticResource StyleTextBoxBase }" Text="{ Binding ProjectDescription, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
                         </Grid>
-
-                        <Button Grid.Row="9" Width="150" Margin="0,0,0,15" Command="{ Binding SaveDataOverview, UpdateSourceTrigger=PropertyChanged}"  Content="Save" FontSize="20" />
                     </Grid>
                 </ScrollViewer>
             </StackPanel>

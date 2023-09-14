@@ -20,27 +20,28 @@ using System.Windows;
 
 namespace Hazip.ViewModels
 {
-    public class VM_TeamMember : ObservableObject
+    public class VM_Nodes : ObservableObject
     {
         #region Constructor
-        public VM_TeamMember()
+        public VM_Nodes()
         {
             loadData();
             if (listData is null || App.dataObject.Team_Members is null)
             {
-                listData = new ObservableCollection<Team_Members>();
-                App.dataObject.Team_Members = new List<Team_Members>();
+                listData = new ObservableCollection<Nodes>();
+                App.dataObject.Nodes = new List<Nodes>();
             }
             WidthTable = 800;
-            AddCommand = new RelayCommand(AddMember);
-            RemoveCommand = new RelayCommand(RemoveMember);
+            AddCommand = new RelayCommand(AddData);
+            RemoveCommand = new RelayCommand(RemoveData);
             PrintCommand = new RelayCommand(PrintToExcel);
             MoveUpCommand = new RelayCommand(MoveUp);
             MoveDownCommand = new RelayCommand(MoveDown);
             ZoomInCommand = new RelayCommand(ZoomIn);
             ZoomOutCommand = new RelayCommand(ZoomOut);
-            if(listData!= null) { 
-                _collectionView = CollectionViewSource.GetDefaultView(listData);
+            if (listData != null)
+            {
+                _collectionView = CollectionViewSource.GetDefaultView(ListData);
                 _collectionView.Filter = FilterData;
             }
         }
@@ -48,9 +49,9 @@ namespace Hazip.ViewModels
 
         #region Property
 
-        private Team_Members _selectedData;
+        private Nodes _selectedData;
         private int _widthTable;
-        private ObservableCollection<Team_Members> listData;
+        private ObservableCollection<Nodes> listData;
         private string _searchText;
         private ICollectionView _collectionView;
 
@@ -71,13 +72,13 @@ namespace Hazip.ViewModels
                 _collectionView.Refresh();
             }
         }
-        public ObservableCollection<Team_Members> ListData
+        public ObservableCollection<Nodes> ListData
         {
             get { return listData; }
-            set { listData = value; OnPropertyChanged(); App.dataObject.Team_Members = listData.ToList(); }
+            set { listData = value; OnPropertyChanged(); App.dataObject.Nodes = ListData.ToList(); }
         }
 
-        public Team_Members SelectedData
+        public Nodes SelectedData
         {
             get { return _selectedData; }
             set
@@ -101,30 +102,29 @@ namespace Hazip.ViewModels
 
         private void loadData()
         {
-            var appData = App.dataObject.Team_Members;
+            var appData = App.dataObject.Nodes;
             if (appData != null)
             {
-                listData = new ObservableCollection<Team_Members>(appData);
+                ListData = new ObservableCollection<Nodes>(appData);
             }
 
         }
-        private void AddMember()
+        private void AddData()
         {
-            Team_Members newData = new Team_Members();
-            
-            listData.Add(newData);
-            App.dataObject.Team_Members.Add(listData.Last());
+            Nodes newData = new Nodes();
+            ListData.Add(newData);
+            App.dataObject.Nodes.Add(ListData.Last());
             SelectedData = newData;
         }
 
-        private void RemoveMember()
+        private void RemoveData()
         {
             if (SelectedData != null)
             {
-                Team_Members selectedTempMember = SelectedData;
-                listData.Remove(selectedTempMember);
-                App.dataObject.Team_Members.Remove(selectedTempMember);
-                SelectedData = new Team_Members();
+                Nodes selectedTemp = SelectedData;
+                ListData.Remove(selectedTemp);
+                App.dataObject.Nodes.Remove(selectedTemp);
+                SelectedData = new Nodes();
             }
             else
             {
@@ -139,7 +139,7 @@ namespace Hazip.ViewModels
             {
                 Filter = "Excel Files|*.xlsx|All Files|*.*",
                 DefaultExt = ".xlsx",
-                FileName = "Team Member - " + App.dataObject.Overview.Study_Name
+                FileName = "Hazard Type - " + App.dataObject.Overview.Study_Name
             };
 
             if (saveFileDialog.ShowDialog() == true)
@@ -149,22 +149,24 @@ namespace Hazip.ViewModels
                 // Membuat package Excel dan worksheet
                 using (var package = new ExcelPackage())
                 {
-                    var worksheet = package.Workbook.Worksheets.Add("Data Member");
-                    worksheet.Cells[1, 1].Value = "Name";
-                    worksheet.Cells[1, 2].Value = "Company";
-                    worksheet.Cells[1, 3].Value = "Title";
-                    worksheet.Cells[1, 4].Value = "Department";
-                    worksheet.Cells[1, 5].Value = "Phone Number";
-                    worksheet.Cells[1, 6].Value = "EMail Address";
+                    var worksheet = package.Workbook.Worksheets.Add("Hazard Type");
+                    worksheet.Cells[1, 1].Value = "Description";
+                    worksheet.Cells[1, 2].Value = "Intention";
+                    worksheet.Cells[1, 3].Value = "Boundary";
+                    worksheet.Cells[1, 4].Value = "Design Conditions";
+                    worksheet.Cells[1, 5].Value = "Operating Conditions";
+                    worksheet.Cells[1, 6].Value = "Color";
+                    worksheet.Cells[1, 7].Value = "Comments";
                     // Menulis data dari DataList ke worksheet
-                    for (int row = 2; row <= listData.Count; row++)
+                    for (int row = 2; row <= ListData.Count; row++)
                     {
-                        worksheet.Cells[row, 1].Value = listData[row - 1].Name;
-                        worksheet.Cells[row, 2].Value = listData[row - 1].Company;
-                        worksheet.Cells[row, 3].Value = listData[row - 1].Title;
-                        worksheet.Cells[row, 4].Value = listData[row - 1].Department;
-                        worksheet.Cells[row, 5].Value = listData[row - 1].Phone_Number;
-                        worksheet.Cells[row, 6].Value = listData[row - 1].E__Mail_Address;
+                        worksheet.Cells[row, 1].Value = ListData[row - 1].Node_Description;
+                        worksheet.Cells[row, 2].Value = ListData[row - 1].Intention;
+                        worksheet.Cells[row, 3].Value = ListData[row - 1].Boundary;
+                        worksheet.Cells[row, 4].Value = ListData[row - 1].Design_Conditions;
+                        worksheet.Cells[row, 5].Value = ListData[row - 1].Operating_Conditions;
+                        worksheet.Cells[row, 6].Value = ListData[row - 1].Node_Color;
+                        worksheet.Cells[row, 7].Value = ListData[row - 1].Node_Comments;
                     }
 
                     // Menyimpan package Excel ke file
@@ -177,21 +179,18 @@ namespace Hazip.ViewModels
         {
             if (SelectedData != null)
             {
-                try
-                {
-                    int currentIndex = listData.IndexOf(SelectedData);
-                    int currentIndexGlobal = App.dataObject.Team_Members.IndexOf(SelectedData);
-                    Team_Members movedObject = App.dataObject.Team_Members[currentIndexGlobal];
+                int currentIndex = ListData.IndexOf(SelectedData);
+                int currentIndexGlobal = App.dataObject.Nodes.IndexOf(SelectedData);
+                Nodes movedObject = App.dataObject.Nodes[currentIndexGlobal];
 
-                    if (currentIndex > 0)
-                    {
-                        listData.Move(currentIndex, currentIndex - 1);
-                        App.dataObject.Team_Members.RemoveAt(currentIndexGlobal);
-                        App.dataObject.Team_Members.Insert(currentIndexGlobal - 1, movedObject);
-                    }
+                if (currentIndex > 0)
+                {
+                    ListData.Move(currentIndex, currentIndex - 1);
+                    App.dataObject.Nodes.RemoveAt(currentIndexGlobal);
+                    App.dataObject.Nodes.Insert(currentIndexGlobal - 1, movedObject);
                 }
-                catch { MessageBox.Show("Please select data first!"); }
-            }else
+            }
+            else
             {
                 MessageBox.Show("Please select data first!");
             }
@@ -202,13 +201,13 @@ namespace Hazip.ViewModels
             if (SelectedData != null)
             {
                 int currentIndex = listData.IndexOf(SelectedData);
-                int currentIndexGlobal = App.dataObject.Team_Members.IndexOf(SelectedData);
-                Team_Members movedObject = App.dataObject.Team_Members[currentIndexGlobal];
+                int currentIndexGlobal = App.dataObject.Nodes.IndexOf(SelectedData);
+                Nodes movedObject = App.dataObject.Nodes[currentIndexGlobal];
                 if (currentIndex < listData.Count - 1)
                 {
                     listData.Move(currentIndex, currentIndex + 1);
-                    App.dataObject.Team_Members.RemoveAt(currentIndexGlobal);
-                    App.dataObject.Team_Members.Insert(currentIndexGlobal + 1, movedObject);
+                    App.dataObject.Nodes.RemoveAt(currentIndexGlobal);
+                    App.dataObject.Nodes.Insert(currentIndexGlobal + 1, movedObject);
                 }
             }
             else
@@ -216,8 +215,6 @@ namespace Hazip.ViewModels
                 MessageBox.Show("Please select data first!");
             }
         }
-        #endregion
-
         private bool FilterData(object obj)
         {
             if (string.IsNullOrWhiteSpace(SearchText))
@@ -226,16 +223,16 @@ namespace Hazip.ViewModels
                 return true;
             }
 
-            if (obj is Team_Members member)
+            if (obj is Nodes data)
             {
-                return member.Name.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ||
-                       member.Company.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ||
-                       member.Department.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ||
-                       member.Experience.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ||
-                       member.Expertise.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ||
-                       member.E__Mail_Address.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ||
-                       member.Phone_Number.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ||
-                       member.Team_Member_Comments.Contains(SearchText, StringComparison.OrdinalIgnoreCase);
+                return data.Node_Description.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ||
+                       data.Hazardous_Materials.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ||
+                       data.Operating_Conditions.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ||
+                       data.Design_Conditions.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ||
+                       data.Intention.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ||
+                       data.Location.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ||
+                       data.Node_Color.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ||
+                       data.Boundary.Contains(SearchText, StringComparison.OrdinalIgnoreCase);
             }
 
             return false;
@@ -254,6 +251,9 @@ namespace Hazip.ViewModels
             WidthTable = WidthTable - 60;
 
         }
+
+        #endregion
+
 
 
 

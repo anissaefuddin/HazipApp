@@ -23,6 +23,7 @@ namespace Hazip.Views
         public Study_TeamMember()
         {
             InitializeComponent();
+
         }
 
        
