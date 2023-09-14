@@ -67,7 +67,7 @@ namespace Hazip.ViewModels
         public ObservableCollection<Sessions> ListData
         {
             get { return listData; }
-            set { listData = value; OnPropertyChanged(); App.dataObject.Sessions = ListData.ToList(); }
+            set { listData = value; OnPropertyChanged(); App.dataObject.Sessions = ListData.ToList();  }
         }
         
         private ObservableCollection<Sessions> listData;

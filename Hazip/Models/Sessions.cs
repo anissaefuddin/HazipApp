@@ -25,7 +25,6 @@ Session_Comments	:
         public string ? Scribe_ID { get; set; }
         public string ? Session_Comments { get; set; }
 
-        public string Facilitator_Name { get; set; }
-        public string Scribe_Name { get; set; }
+
     }
 }
