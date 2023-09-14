@@ -53,7 +53,7 @@
                                 <DataGridTextColumn Header="Design Condition" Binding="{Binding Design_Conditions}" Width="*"/>
                                 <DataGridTextColumn Header="Operating Condition" Binding="{Binding Operating_Conditions}" Width="*"/>
                                 <DataGridTextColumn Header="Color" Binding="{Binding Node_Color}" Width="*"/>
-                                <DataGridTextColumn Header="Session"  Width="*"/>
+                                <DataGridComboBoxColumn Header="Session"  DisplayMemberPath="Session" SelectedValuePath="Session" SelectedValueBinding="{Binding Session}" ItemsSource="{Binding listDataSessions}"  Width="*"/>
                                 <DataGridTextColumn Header="Drawing" Width="*"/>
                                 <DataGridTextColumn Header="Comment" Binding="{Binding Node_Comments}" Width="*"/>
                               

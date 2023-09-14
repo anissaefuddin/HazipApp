@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hazip.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,11 +18,11 @@ Pha_Recommendation_Responsible_Party	:
 Pha_Recommendation_Status	:	null
 Pha_Recommendation_Comments	:	*/
 
-        public string ID {  get; set; }
-        public string Pha_Recommendation { get; set; }
-        public string Pha_Recommendation_Priority { get; set; }
-        public string Pha_Recommendation_Responsible_Party { get; set; }
-        public string Pha_Recommendation_Status { get; set; }
-        public string Pha_Recommendation_Comments { get; set; }
+        public string ID {  get; set; } = IdGenerator.GenerateId();
+        public string ? Pha_Recommendation { get; set; }
+        public string ? Pha_Recommendation_Priority { get; set; }
+        public string ? Pha_Recommendation_Responsible_Party { get; set; }
+        public string ? Pha_Recommendation_Status { get; set; }
+        public string ? Pha_Recommendation_Comments { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hazip.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,13 +18,12 @@ Responsible_Party	:
 Start_Date	:	
 End_Date	:	
 */
-        public string ID {  get; set; }
-        public string Parking_Lot_Issue { get; set; }
-        public string Response { get; set; }
-        public string Responsible_Party { get; set; }
-        public string Start_Date { get; set; }
-
-        public string End_Date { get; set; }
+        public string ? ID {  get; set; } = IdGenerator.GenerateId();
+        public string ? Parking_Lot_Issue { get; set; }
+        public string ? Response { get; set; }
+        public string ? Responsible_Party { get; set; }
+        public string ? Start_Date { get; set; }
+        public string ? End_Date { get; set; }
 
 
     }

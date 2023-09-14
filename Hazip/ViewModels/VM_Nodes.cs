@@ -52,6 +52,7 @@ namespace Hazip.ViewModels
         private Nodes _selectedData;
         private int _widthTable;
         private ObservableCollection<Nodes> listData;
+        private ObservableCollection<Sessions> listDataSessions;
         private string _searchText;
         private ICollectionView _collectionView;
 

@@ -1,0 +1,61 @@
+﻿<UserControl x:Class="Hazip.Views.Study_Schedule"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Hazip.Views"
+             xmlns:vm="clr-namespace:Hazip.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <vm:VM_Schedule x:Name="VM_Schedule" />
+    </UserControl.DataContext>
+    <Grid>
+        <Border Padding="10">
+            <StackPanel>
+                <TextBlock Text="Schedule" FontSize="18" FontWeight="Bold" Margin="0,0,0,20" />
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left" >
+                            <Button Content="{StaticResource AddIcon}" Command="{Binding AddCommand}" Style="{StaticResource IconStyle}"/>
+                            <Button Content="{StaticResource RemoveIcon}" Command="{Binding RemoveCommand}"  Style="{StaticResource IconStyle}" />
+                            <Button Content="{StaticResource ZoomInIcon}" Command="{Binding ZoomInCommand}"  Style="{StaticResource IconStyle}" />
+                            <Button Content="{StaticResource ZoomOutIcon}" Command="{Binding ZoomOutCommand}"  Style="{StaticResource IconStyle}" />
+                            <Button Content="{StaticResource PrintIcon}" Command="{Binding PrintCommand}"  Style="{StaticResource IconStyle}" />
+                        </StackPanel>
+                        <StackPanel Grid.Column="1"  Orientation="Horizontal" HorizontalAlignment="Right" >
+                            <Button Content="{StaticResource MoveUpIcon}" Command="{Binding MoveUpCommand}"  Style="{StaticResource IconStyle}" />
+                            <Button Content="{StaticResource MoveDownIcon}" Command="{Binding MoveDownCommand}"  Style="{StaticResource IconStyle}" />
+                            <TextBox Width="150" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" />
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Grid.Row="1" >
+                        <DataGrid x:Name="MyDataGrid"  Height="200" Width="{Binding WidthTable}" Margin="0,10,0,0" AutoGenerateColumns="False" 
+                          ItemsSource="{Binding ListData, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  
+                          SelectedItem="{Binding SelectedData, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                          HorizontalAlignment="Left" VerticalAlignment="Top" 
+                          ScrollViewer.CanContentScroll="True">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Date" Binding="{Binding Date}" Width="*"/>
+                                <DataGridTextColumn Header="Duration" Binding="{Binding Duration}" Width="*"/>
+                                <DataGridTextColumn Header="Session" Binding="{Binding Session}" Width="*"/>
+                                
+                                <DataGridTextColumn Header="Scribe" Binding="{Binding Scribe_ID}" Width="*"/>
+                                <DataGridTextColumn Header="Comment" Binding="{Binding Team_Member_Comments}" Width="*"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </Grid>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

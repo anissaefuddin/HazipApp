@@ -29,12 +29,6 @@ namespace Hazip
             NavigationVM vm = new NavigationVM();
 
         }
-
-        private bool CanSave()
-        {
-            // Di sini Anda dapat menentukan apakah tindakan Save seharusnya diizinkan
-            return true; // Izinkan selalu untuk contoh ini
-        }
         private void OpenFile_Click(object sender, RoutedEventArgs e)
         {
             
@@ -61,7 +55,7 @@ namespace Hazip
             }
             else
             {
-                MessageBoxResult Result = MessageBox.Show("Are you sure to close this project?", "Would you like this seat?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                MessageBoxResult Result = MessageBox.Show("Are you sure to close this project?", "Close project", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (Result == MessageBoxResult.Yes)
                 {
 
@@ -71,7 +65,6 @@ namespace Hazip
                 }
                 else if (Result == MessageBoxResult.No)
                 {
-                    MessageBox.Show("OK");
                 }
             }
 

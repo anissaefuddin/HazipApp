@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hazip.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,9 +17,9 @@ Session_ID	:	v6bo7zfvkd8ndn65pf3kwk
 Value	:	Present
 */
 
-        public string ID { get; set; }
-        public string Team_Member_ID { get; set; }
-        public string Session_ID { get; set; }
-        public string Value { get; set;}
+        public string ID { get; set; } = IdGenerator.GenerateId();
+        public string ? Team_Member_ID { get; set; }
+        public string ? Session_ID { get; set; }
+        public string ? Value { get; set;}
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hazip.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,7 @@ namespace Hazip.Models
         /*D	:	empty
 Lopa_Comment	:	
 */
-        public string ID { get; set; }
-        public string Lopa_Comment { get; set; }
+        public string ID { get; set; } = IdGenerator.GenerateId();
+        public string ? Lopa_Comment { get; set; }
     }
 }

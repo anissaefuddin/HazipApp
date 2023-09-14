@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hazip.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,9 +16,9 @@ RM_Description	:	Rare
 Frequency	:	&lt;1E-6
 Code	:	1
 */
-        public string ID { get; set; }
-        public string RM_Description { get; set; }
-        public string Frequency { get; set; }
-        public string Code { get; set; }
+        public string ID { get; set; } = IdGenerator.GenerateId();
+        public string ? RM_Description { get; set; }
+        public string ? Frequency { get; set; }
+        public string ? Code { get; set; }
     }
 }

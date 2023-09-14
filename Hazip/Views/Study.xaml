@@ -25,7 +25,7 @@
                         <Frame Name="TeamMember" Source="Study_TeamMember.xaml"/>
                     </TabItem>
                     <TabItem Header="Schedule" Height="50">
-                        <Grid Background="#FFE5E5E5"/>
+                        <Frame Name="Schedule" Source="Study_Schedule.xaml"/>
                     </TabItem>
                     <TabItem Header="Attendance" Height="50">
                         <Grid Background="#FFE5E5E5"/>

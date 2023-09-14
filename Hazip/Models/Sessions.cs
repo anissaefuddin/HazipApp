@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hazip.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,13 +17,15 @@ Facilitator_ID	:	do9xnm2r4rievgx9vcofpj
 Scribe_ID	:	do9xnm2r4rievgx9vcofpj
 Session_Comments	:	
 */
-        public string ID { get; set; }
-        public string Date { get; set; }
-        public string Duration { get; set; }
+        public string ID { get; set; } = IdGenerator.GenerateId();
+        public string ? Date { get; set; }
+        public string ? Duration { get; set; }
+        public string ? Session { get; set; }
+        public string ? Facilitator_ID { get; set; }
+        public string ? Scribe_ID { get; set; }
+        public string ? Session_Comments { get; set; }
 
-        public string Session { get; set; }
-        public string Facilitator_ID { get; set; }
-        public string Scribe_ID { get; set; }
-        public string Session_Comments { get; set; }
+        public string Facilitator_Name { get; set; }
+        public string Scribe_Name { get; set; }
     }
 }

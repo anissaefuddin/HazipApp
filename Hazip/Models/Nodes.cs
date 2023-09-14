@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hazip.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,7 @@ Equipment_Tags	:
 Location	:	
 Node_Comments	:	
 */
-        public string ID { get; set; } = Guid.NewGuid().ToString();
+        public string ID { get; set; } = IdGenerator.GenerateId();
         public string Node_Description { get; set; }
         public string Intention { get; set; }
         public string Boundary { get; set; }
@@ -31,5 +32,13 @@ Node_Comments	:
         public string Equipment_Tags { get; set; }
         public string Location { get; set; }
         public string Node_Comments { get; set; }
+        public List<Session_IDs> ? Session_IDs { get; set; }
+        
+        public List<Deviations> ? Drawing_IDs {  get; set; }
+    }
+
+    public class Session_IDs
+    {
+        string ID { get; set; }
     }
 }
