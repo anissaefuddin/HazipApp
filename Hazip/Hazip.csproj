@@ -28,6 +28,7 @@
     <None Remove="images\trash-fill.svg" />
     <None Remove="images\zoom-in.svg" />
     <None Remove="images\zoom-out.svg" />
+    <None Remove="Utilities\Default.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -97,6 +98,9 @@
     <Resource Include="images\zoom-out.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Content Include="Utilities\Default.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

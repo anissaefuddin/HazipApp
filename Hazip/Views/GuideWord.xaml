@@ -28,7 +28,7 @@
                               DisplayMemberPath="Node_Description"
                               IsSynchronizedWithCurrentItem="True" 
                               SelectedValuePath="ID"
-                              SelectedIndex="0" />          
+                              SelectedIndex="{ Binding IndexCombobox}" />          
                     </Grid>
             
                     <Grid Grid.Row="1" >

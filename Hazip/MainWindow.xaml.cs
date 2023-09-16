@@ -26,8 +26,13 @@ namespace Hazip
         public MainWindow()
         {
             InitializeComponent();
+            if (App.dataObject.Overview is null)
+            {
+                string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Utilities", "Default.json");
+                App.dataObject = JsonConvert.DeserializeObject<DataObjek>(File.ReadAllText(filePath));
+            }
             NavigationVM vm = new NavigationVM();
-
+            
         }
         private void OpenFile_Click(object sender, RoutedEventArgs e)
         {

@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.Win32;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -42,11 +43,25 @@ namespace Hazip.Views
         private async void SimulateSaveData()
         {
             // Serialisasi data kembali ke JSON
+            // Serialisasi data kembali ke JSON
             App.dataFile.Content = JsonConvert.SerializeObject(App.dataObject);
+            if (App.dataFile.FilePath is null)
+            {
+                var saveFileDialog = new SaveFileDialog
+                {
+                    Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*",
+                    DefaultExt = ".json",
+                    FileName = "New File "
+                };
 
+                if (saveFileDialog.ShowDialog() == true)
+                {
+                    App.dataFile.FilePath = saveFileDialog.FileName;
+                    File.WriteAllText(App.dataFile.FilePath, App.dataFile.Content);
+                    App.dataFile.Content = File.ReadAllText(App.dataFile.FilePath);
+                }
+            }
             File.WriteAllText(App.dataFile.FilePath, App.dataFile.Content);
-            // Simulasi penundaan penyimpanan data selama 2 detik
-           
             await Task.Delay(TimeSpan.FromSeconds(2));
         }
 

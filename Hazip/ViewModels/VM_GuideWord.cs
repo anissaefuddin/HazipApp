@@ -102,7 +102,7 @@ namespace Hazip.ViewModels
                 _selectedDataNodes = value;
                 if (SelectedDataNodes != null && SelectedDataNodes.Deviations != null)
                 {
-                    _listData = new ObservableCollection<Deviations>(_selectedDataNodes?.Deviations);
+                    _listData = new ObservableCollection<Deviations>(SelectedDataNodes?.Deviations);
                     OnPropertyChanged(nameof(SelectedDataNodes));
                 }
                 else
@@ -119,7 +119,8 @@ namespace Hazip.ViewModels
             }
         }
         private Nodes _selectedDataNodes;
-
+        public int IndexCombobox { get { return _indexCombobox; } set { OnPropertyChanged();  } }
+        private int _indexCombobox = 0;
 
         public ICommand AddCommand { get; private set; }
         public ICommand CheckDataCommand { get; private set; }
@@ -141,7 +142,7 @@ namespace Hazip.ViewModels
             var c = SelectedDataNodes;
             var d = _listData;
             var e = SelectedData;
-            //SelectedDataNodes = ListDataNodes[0];
+            SelectedDataNodes = ListDataNodes[0];
         }
         private void loadData()
         {
@@ -149,11 +150,12 @@ namespace Hazip.ViewModels
             if (appData != null)
             {
                 ListDataNodes = new ObservableCollection<Nodes>(appData);
-                if(_listDataNodes != null) SelectedDataNodes = ListDataNodes[0];
-                if (_selectedDataNodes.Deviations != null)
-                { _listData = new ObservableCollection<Deviations>(_selectedDataNodes.Deviations); ; }
+                if(ListDataNodes != null) SelectedDataNodes = ListDataNodes[0]; IndexCombobox = 0;
+                if (SelectedDataNodes.Deviations != null)
+                { _listData = new ObservableCollection<Deviations>(SelectedDataNodes.Deviations); ; }
                 else _listData = new ObservableCollection<Deviations>();
             }
+
             WidthTable = 800;
         }
         
