@@ -21,6 +21,7 @@ namespace Hazip.ViewModels
         public ICommand HomeCommand { get; set; }
         public ICommand NodesCommand { get; set; }
         public ICommand ProductsCommand { get; set; }
+        public ICommand GuideWordCommand { get; set; }
         public ICommand OrdersCommand { get; set; }
         public ICommand TransactionsCommand { get; set; }
         public ICommand ShipmentsCommand { get; set; }
@@ -29,6 +30,7 @@ namespace Hazip.ViewModels
         private void Home(object obj) => CurrentView = new StudyVM();
         private void Nodes(object obj) => CurrentView = new VM_Nodes();
         private void Product(object obj) => CurrentView = new ProductVM();
+        private void GuideWord(object obj) => CurrentView = new VM_GuideWord();
         private void Order(object obj) => CurrentView = new OrderVM();
         private void Transaction(object obj) => CurrentView = new TransactionVM();
         private void Shipment(object obj) => CurrentView = new ShipmentVM();
@@ -38,6 +40,7 @@ namespace Hazip.ViewModels
         {
             HomeCommand = new RelayCommand(Home);
             NodesCommand = new RelayCommand(Nodes);
+            GuideWordCommand = new RelayCommand(GuideWord);
             ProductsCommand = new RelayCommand(Product);
             OrdersCommand = new RelayCommand(Order);
             TransactionsCommand = new RelayCommand(Transaction);

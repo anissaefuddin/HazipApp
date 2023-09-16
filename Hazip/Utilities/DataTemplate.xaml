@@ -10,6 +10,10 @@
     <DataTemplate DataType="{x:Type vm:StudyVM}">
         <view:Study />
     </DataTemplate>
+    
+    <DataTemplate DataType="{x:Type vm:VM_GuideWord}">
+        <view:GuideWord />
+    </DataTemplate>
 
     <DataTemplate DataType="{x:Type vm:VM_TeamMember}">
         <view:Study_TeamMember />

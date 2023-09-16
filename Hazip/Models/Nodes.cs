@@ -33,12 +33,17 @@ Node_Comments	:
         public string Location { get; set; }
         public string Node_Comments { get; set; }
         public List<Session_IDs> ? Session_IDs { get; set; }
-        
-        public List<Deviations> ? Drawing_IDs {  get; set; }
+        public List<Session_IDs>? Drawing_IDs { get; set; }
+
+        public List<Deviations> ? Deviations {  get; set; }
     }
 
     public class Session_IDs
     {
-        string ID { get; set; }
+        public string ID { get; set; }
+    }
+    public class Drawing_IDs
+    {
+        public string ID { get; set; }
     }
 }

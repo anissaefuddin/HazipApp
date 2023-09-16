@@ -49,11 +49,6 @@ namespace Hazip.ViewModels
 
         #region Property
 
-        private Nodes _selectedData;
-        private int _widthTable;
-        private ObservableCollection<Nodes> listData;
-        private ObservableCollection<Sessions> listDataSessions;
-        private string _searchText;
         private ICollectionView _collectionView;
 
         public int WidthTable
@@ -64,6 +59,7 @@ namespace Hazip.ViewModels
                 SetProperty(ref _widthTable, value);
             }
         }
+        private int _widthTable;
         public string SearchText
         {
             get => _searchText;
@@ -73,11 +69,19 @@ namespace Hazip.ViewModels
                 _collectionView.Refresh();
             }
         }
+        private string _searchText;
         public ObservableCollection<Nodes> ListData
         {
             get { return listData; }
             set { listData = value; OnPropertyChanged(); App.dataObject.Nodes = ListData.ToList(); }
         }
+        private ObservableCollection<Nodes> listData;
+        public ObservableCollection<Sessions> ListDataSessions
+        {
+            get { return listDataSessions; }
+            set { listDataSessions = value; OnPropertyChanged(); App.dataObject.Sessions = listDataSessions.ToList(); }
+        }
+        private ObservableCollection<Sessions> listDataSessions;
 
         public Nodes SelectedData
         {
@@ -87,6 +91,21 @@ namespace Hazip.ViewModels
                 SetProperty(ref _selectedData, value);
             }
         }
+        private Nodes _selectedData;
+
+        public string SelectedSession_IDs
+        {
+            get { return _selectedSession_IDs; }
+            set
+            {
+                _selectedSession_IDs = value;
+               /* Session_IDs var = new Session_IDs();
+                var.ID = value;
+                SelectedData.Session_IDs.Add(var);*/
+                OnPropertyChanged();
+            }
+        }
+        private string _selectedSession_IDs = string.Empty;
 
         public ICommand AddCommand { get; private set; }
         public ICommand ZoomInCommand { get; private set; }
@@ -107,6 +126,8 @@ namespace Hazip.ViewModels
             if (appData != null)
             {
                 ListData = new ObservableCollection<Nodes>(appData);
+                if(App.dataObject.Sessions != null)
+                    listDataSessions = new ObservableCollection<Sessions>(App.dataObject.Sessions);
             }
 
         }

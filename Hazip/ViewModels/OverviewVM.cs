@@ -305,7 +305,6 @@ namespace Hazip.ViewModels
             if (parameter != null)
             {
                 Overview overview = (Overview)parameter;
-                string a = "";
             }
 
         }

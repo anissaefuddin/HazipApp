@@ -10,16 +10,16 @@ namespace Hazip.ViewModels
     class ProductVM : Utilities.ViewModelBase
     {
         private readonly PageModel _pageModel;
-        public string ProductAvailability
+        public DateOnly DisplayOrderDate
         {
-            get { return _pageModel.ProductStatus; }
-            set { _pageModel.ProductStatus = value; OnPropertyChanged(); }
+            get { return _pageModel.OrderDate; }
+            set { _pageModel.OrderDate = value; OnPropertyChanged(); }
         }
 
         public ProductVM()
         {
             _pageModel = new PageModel();
-            ProductAvailability = "Out of Stock";
+            DisplayOrderDate = DateOnly.FromDateTime(DateTime.Now);
         }
     }
 }

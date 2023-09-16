@@ -99,7 +99,7 @@
                     <!--// Products //-->
 
                     <Menu:Btn Style="{StaticResource BtnStyle}"
-                          Command="{Binding ProductsCommand}">
+                          Command="{Binding GuideWordCommand}">
 
                         <Grid>
 
