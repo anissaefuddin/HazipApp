@@ -18,7 +18,7 @@ RM_Tmel	:	1E-5
 Code	:	5
 */
         public string ID { get; set; } = IdGenerator.GenerateId();
-        public string ? Severity_Type { get; set; }
+        public SaverityType? Severity_Type { get; set; }
         public string ? RM_Description { get; set; }
         public string ? RM_Tmel { get; set; }
         public string ? Code { get; set; }

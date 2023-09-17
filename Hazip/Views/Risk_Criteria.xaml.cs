@@ -19,11 +19,11 @@ using System.Windows.Shapes;
 namespace Hazip.Views
 {
     /// <summary>
-    /// Interaction logic for Nodes.xaml
+    /// Interaction logic for Risk_Criteria.xaml
     /// </summary>
-    public partial class Nodes : UserControl
+    public partial class Risk_Criteria : UserControl
     {
-        public Nodes()
+        public Risk_Criteria()
         {
             InitializeComponent();
         }
@@ -31,6 +31,7 @@ namespace Hazip.Views
         {
             if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.S)
             {
+                // Simulasi penyimpanan data (Anda dapat menggantinya dengan logika penyimpanan sesungguhnya)
                 SimulateSaveData();
                 ShowToast("Data berhasil disimpan!");
                 e.Handled = true;
@@ -41,7 +42,6 @@ namespace Hazip.Views
         // Simulasikan penyimpanan data
         private async void SimulateSaveData()
         {
-            // Serialisasi data kembali ke JSON
             // Serialisasi data kembali ke JSON
             App.dataFile.Content = JsonConvert.SerializeObject(App.dataObject);
             if (App.dataFile.FilePath is null)

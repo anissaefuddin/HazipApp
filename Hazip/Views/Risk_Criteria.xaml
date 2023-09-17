@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="Hazip.Views.Risk_Criteria"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Hazip.Views"
+             xmlns:vm="clr-namespace:Hazip.ViewModels"
+             KeyDown="OnKeyDown"
+             mc:Ignorable="d" 
+             d:DesignHeight="600"
+             d:DesignWidth="622">
+    <UserControl.DataContext>
+        <vm:RiskCriteriaVM x:Name="RiskCriteriaVM" />
+    </UserControl.DataContext>
+    <Grid>
+        <Border Background="White" CornerRadius="0,20,20,0" Margin="0,5,5,0">
+            <StackPanel>
+                <TabControl TabStripPlacement="Left" Height="580" >
+                    <TabItem Header="Risk Matrix" Height="50" >
+                        <Frame Name="RiskMatrix" Source="Risk_Criteria_Matrix.xaml"/>
+                    </TabItem>
+                    <TabItem Header="Likehood Categories" Height="50">
+                        <Frame Name="LikehoodCategories" Source="Risk_Criteria_Likehood_Categories.xaml"/>
+                    </TabItem>
+                    <TabItem Header="Concequence Categories" Height="50">
+                        <Frame Name="Schedule" Source="Risk_Criteria_Consequence_Categories.xaml"/>
+                    </TabItem>
+                    <TabItem Header="Risk Ranking" Height="50">
+                        <Frame Name="RiskRanking" Source="Risk_Criteria_Risk_Ranking.xaml"/>
+                    </TabItem>
+                </TabControl>
+            </StackPanel>
+        </Border>
+        <Grid Name="ToastGrid" Background="Green" VerticalAlignment="Top" Height="0" Visibility="Collapsed" Opacity="0.8">
+            <TextBlock Text="Data berhasil disimpan!" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" />
+        </Grid>
+    </Grid>
+</UserControl>

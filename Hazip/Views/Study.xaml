@@ -10,7 +10,6 @@
              d:DesignWidth="622"
              KeyDown="OnKeyDown"
              >
-
     <UserControl.DataContext>
         <vm:StudyVM x:Name="StudyVM" />
     </UserControl.DataContext>

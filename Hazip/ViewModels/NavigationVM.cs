@@ -25,7 +25,7 @@ namespace Hazip.ViewModels
         public ICommand OrdersCommand { get; set; }
         public ICommand TransactionsCommand { get; set; }
         public ICommand ShipmentsCommand { get; set; }
-        public ICommand SettingsCommand { get; set; }
+        public ICommand RiskCriteriaCommand { get; set; }
 
         private void Home(object obj) => CurrentView = new StudyVM();
         private void Nodes(object obj) => CurrentView = new VM_Nodes();
@@ -34,7 +34,7 @@ namespace Hazip.ViewModels
         private void Order(object obj) => CurrentView = new OrderVM();
         private void Transaction(object obj) => CurrentView = new TransactionVM();
         private void Shipment(object obj) => CurrentView = new ShipmentVM();
-        private void Setting(object obj) => CurrentView = new SettingVM();
+        private void RiskCriteria(object obj) => CurrentView = new RiskCriteriaVM();
 
         public NavigationVM()
         {
@@ -45,7 +45,7 @@ namespace Hazip.ViewModels
             OrdersCommand = new RelayCommand(Order);
             TransactionsCommand = new RelayCommand(Transaction);
             ShipmentsCommand = new RelayCommand(Shipment);
-            SettingsCommand = new RelayCommand(Setting);
+            RiskCriteriaCommand = new RelayCommand(RiskCriteria);
 
             // Startup Page
             CurrentView = new StudyVM();

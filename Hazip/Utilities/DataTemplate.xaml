@@ -6,11 +6,17 @@
     <DataTemplate DataType="{x:Type vm:OverviewVM}">
         <view:Study />
     </DataTemplate>
+    
 
     <DataTemplate DataType="{x:Type vm:StudyVM}">
         <view:Study />
     </DataTemplate>
     
+    <DataTemplate DataType="{x:Type vm:RiskCriteriaVM}">
+        <view:Risk_Criteria />
+    </DataTemplate>
+
+
     <DataTemplate DataType="{x:Type vm:VM_GuideWord}">
         <view:GuideWord />
     </DataTemplate>
@@ -23,8 +29,8 @@
         <view:Nodes />
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type vm:OrderVM}">
-        <view:Orders />
+    <DataTemplate DataType="{x:Type vm:VM_Likehood}">
+        <view:Risk_Criteria_Likehood_Categories />
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type vm:TransactionVM}">

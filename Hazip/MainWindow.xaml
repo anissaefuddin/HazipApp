@@ -167,7 +167,7 @@
                     <!--// Settings //-->
 
                     <Menu:Btn Style="{StaticResource BtnStyle}"
-                          Command="{Binding SettingsCommand}">
+                          Command="{Binding RiskCriteriaCommand}">
 
                         <Grid>
 
