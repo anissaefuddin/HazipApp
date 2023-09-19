@@ -493,9 +493,29 @@
     }
   },
   "Team_Members": [
+    {
+      "ID": "empty",
+      "Name": "",
+      "Company": "",
+      "Title": "",
+      "Department": "",
+      "Expertise": "",
+      "Experience": "",
+      "Phone_Number": "",
+      "E__Mail_Address": "",
+      "Team_Member_Comments": ""
+    }
   ],
   "Sessions": [
-    
+    {
+      "ID": "empty",
+      "Date": "",
+      "Duration": "",
+      "Session": "",
+      "Facilitator_ID": "",
+      "Scribe_ID": "",
+      "Session_Comments": ""
+    }
   ],
   "Team_Members_Sessions": [],
   "Revalidation_History": [

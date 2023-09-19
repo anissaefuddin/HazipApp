@@ -6,16 +6,22 @@
              xmlns:local="clr-namespace:Hazip.Views"
              xmlns:vm="clr-namespace:Hazip.ViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             d:DesignHeight="850" d:DesignWidth="800">
     <UserControl.DataContext>
         <vm:VM_RiskMatrix x:Name="VM_RiskMatrix" />
     </UserControl.DataContext>
     <Grid>
-        <Border Padding="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="799*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Border Padding="10" Grid.ColumnSpan="2">
             <StackPanel>
                 <TextBlock Text="Risk Matrix" FontSize="18" FontWeight="Bold" Margin="0,0,0,20" />
                 <Grid>
                     <Grid.RowDefinitions>
+                        <RowDefinition/>
                         <RowDefinition/>
                         <RowDefinition/>
                         <RowDefinition/>
@@ -30,18 +36,54 @@
                     </Grid>
 
                     <Grid Grid.Row="1" >
-                            <Button Content="{StaticResource PrintIcon}" Command="{Binding PrintCommand}"  Style="{StaticResource IconStyle}" />
+                        <Button Content="{StaticResource PrintIcon}" Command="{Binding PrintCommand}"  Style="{StaticResource IconStyle}" />
+                        <DataGrid ItemsSource="{Binding ListDataIntersection}" AutoGenerateColumns="True">
+                            <DataGrid.Columns>
+                            <DataGridComboBoxColumn Header="Risk Ranks"
+                                    SelectedValueBinding="{Binding Risk_Rank_ID}"
+                                    DisplayMemberPath="RM_Description"
+                                    SelectedValuePath="ID"
+                                    ItemsSource="{Binding ListDataRiskRankings}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
                     </Grid>
+                    
+                    <Grid Grid.Row="2">
+                        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding ListData}"
+                                  SelectedItem="{Binding SelectedData}"
+                                  ScrollViewer.VerticalScrollBarVisibility="Visible" 
+                                  CanUserAddRows="False"
+                                  ScrollViewer.HorizontalScrollBarVisibility="Visible" Height="400">
+                            <DataGrid.Columns>
+                                <!-- Kolom untuk menampilkan Severity -->
+                                <DataGridTextColumn Header="Severity" Binding="{Binding Severity.Code}" />
 
-                    <Grid Grid.Row="2" >
-                        <DataGrid ItemsSource="{Binding ListData}" AutoGenerateColumns="False">
-                           
+                                <!-- Kolom untuk menampilkan Likelihood -->
+                                <DataGridTextColumn Header="Likelihood" Binding="{Binding Likelihood.Code}" />
+
+                                <DataGridTextColumn Header="Type" Binding="{Binding Severity.Severity_Type}" />
+
+                                <DataGridTextColumn Header="Risk Rank" Binding="{Binding Risk_Ranking.Priority}" />
+                                <DataGridComboBoxColumn Header="Risk Ranks"
+                                        SelectedValueBinding="{Binding Risk_Rank_ID}"
+                                        DisplayMemberPath="RM_Description"
+                                        SelectedValuePath="ID"
+                                        ItemsSource="{Binding ListDataRiskRankings}"/>
+
+                                <DataGridTextColumn Header="Risk_Rangking" Binding="{Binding Risk_Rank_ID}" Width="100">
+                                    <DataGridTextColumn.CellStyle>
+                                        <Style TargetType="DataGridCell">
+                                            <Setter Property="Background" Value="{Binding Risk_Ranking.Color}" />
+                                        </Style>
+                                    </DataGridTextColumn.CellStyle>
+                                </DataGridTextColumn>
+                            </DataGrid.Columns>
                         </DataGrid>
                     </Grid>
                 </Grid>
             </StackPanel>
         </Border>
-        <Grid Name="ToastGrid" Background="Green" VerticalAlignment="Top" Height="0" Visibility="Collapsed" Opacity="0.8">
+        <Grid Name="ToastGrid" Background="Green" VerticalAlignment="Center" Height="0" Visibility="Collapsed" Opacity="0.8" Grid.ColumnSpan="2">
             <TextBlock Text="Data berhasil disimpan!" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" />
         </Grid>
     </Grid>

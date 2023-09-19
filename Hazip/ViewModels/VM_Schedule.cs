@@ -119,6 +119,15 @@ namespace Hazip.ViewModels
             Sessions newData = new Sessions();
             listData.Add(newData);
             App.dataObject.Sessions.Add(listData.Last());
+            List<Team_Members> listMember = App.dataObject.Team_Members;
+            for (int i = 0; i < listMember.Count; i++)
+            {
+                if (listMember[0].ID != "empty")
+                {
+                    Team_Members_Sessions newsData = new Team_Members_Sessions { Session_ID = newData.ID, Team_Member_ID = listMember[i].ID };
+                    App.dataObject.Team_Members_Sessions.Add(newsData);
+                }
+            }
             SelectedData = newData;
         }
 
@@ -128,6 +137,7 @@ namespace Hazip.ViewModels
             {
                 Sessions selectedTemp = SelectedData;
                 ListData.Remove(selectedTemp);
+                App.dataObject.Team_Members_Sessions.RemoveAll(item => item.Session_ID == selectedTemp.ID);
                 App.dataObject.Sessions.Remove(selectedTemp);
                 SelectedData = new Sessions();
             }

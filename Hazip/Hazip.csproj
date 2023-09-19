@@ -28,6 +28,7 @@
     <None Remove="images\trash-fill.svg" />
     <None Remove="images\zoom-in.svg" />
     <None Remove="images\zoom-out.svg" />
+    <None Remove="Utilities\Default - Copy.json" />
     <None Remove="Utilities\Default.json" />
   </ItemGroup>
 
@@ -66,6 +67,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="images\shipment_page.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Utilities\Default - Copy.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
