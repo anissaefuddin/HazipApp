@@ -62,6 +62,12 @@ namespace Hazip.ViewModels
             set { _listDataMembers = value; }
         }
         private ObservableCollection<Team_Members> _listDataMembers;
+        public ObservableCollection<Team_Members> ListDataMembersDistinct
+        {
+            get { return _listDataMembersDistinct; }
+            set { _listDataMembersDistinct = value; }
+        }
+        private ObservableCollection<Team_Members> _listDataMembersDistinct;
 
         public ObservableCollection<Sessions> ListDataSessions
         {
@@ -69,6 +75,13 @@ namespace Hazip.ViewModels
             set { _listDataSessions = value; }
         }
         private ObservableCollection<Sessions> _listDataSessions;
+
+        public ObservableCollection<Sessions> ListDataSessionsDistinct
+        {
+            get { return _listDataSessionsDistinct; }
+            set { _listDataSessionsDistinct = value; }
+        }
+        private ObservableCollection<Sessions> _listDataSessionsDistinct;
 
         public int WidthTable
         {
@@ -79,7 +92,7 @@ namespace Hazip.ViewModels
             }
         }
 
-        public Sessions SelectedData
+        public Team_Members_Sessions SelectedData
         {
             get { return _selectedData; }
             set
@@ -87,7 +100,7 @@ namespace Hazip.ViewModels
                 SetProperty(ref _selectedData, value);
             }
         }
-        private Sessions _selectedData;
+        private Team_Members_Sessions _selectedData;
         public ObservableCollection<SaverityType> ParameterTypes { get; set; }
         public SaverityType SelectedParameterType
         {
@@ -103,6 +116,8 @@ namespace Hazip.ViewModels
         }
         private SaverityType _selectedParameterType;
 
+        public int RowCount {  get; set; }
+        public int ColumnCount { get; set; }
         #endregion
 
 
@@ -118,6 +133,8 @@ namespace Hazip.ViewModels
                 ListDataTeamMemberSession = new ObservableCollection<Team_Members_Sessions>(appData);
                 ListDataMembers = new ObservableCollection<Team_Members>(App.dataObject.Team_Members);
                 ListDataSessions = new ObservableCollection<Sessions>(App.dataObject.Sessions);
+                ListDataSessionsDistinct = new ObservableCollection<Sessions>(App.dataObject.Sessions.Distinct());
+                ColumnCount = ListDataSessionsDistinct.Count;
                 ListData = new ObservableCollection<Attendances>(ListDataTeamMemberSession.Select(data =>
                 {
                     var member = ListDataMembers.FirstOrDefault(s => s.ID == data.Team_Member_ID);

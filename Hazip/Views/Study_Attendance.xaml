@@ -11,17 +11,24 @@
         <vm:VM_Attendance x:Name="VM_Attendance" />
     </UserControl.DataContext>
     
-    <Grid>
+    <Grid Width="600" HorizontalAlignment="Left">
         <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <ItemsControl ItemsSource="{Binding ListData}">
+            <Grid.RowDefinitions>
+                <!-- Row header -->
+                <RowDefinition Height="Auto" />
+                <!-- ItemsControl -->
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <ItemsControl Grid.Row="0" ItemsSource="{Binding ListData}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <!-- Menggunakan UniformGrid dengan 4 kolom -->
-                        <UniformGrid Columns="4" />
+                        <UniformGrid Columns="{Binding ColumnCount}" />
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
@@ -29,11 +36,8 @@
                         <Border BorderBrush="Gray" BorderThickness="1" Margin="5">
                             <StackPanel>
                                 <!-- Kolom ID -->
-                                <TextBlock Text="{Binding ID}" HorizontalAlignment="Center" />
                                 <TextBlock Text="{Binding team_Members.Name}" HorizontalAlignment="Center"/>
-                                <TextBlock Text="{Binding sessions.Session}" HorizontalAlignment="Center"/>
-                                <TextBox Text="{Binding Value}" />
-                                <ComboBox SelectedItem="{Binding Value}" SelectedValuePath="Value">
+                                <ComboBox SelectedItem="{Binding Value}" SelectedValuePath="Value" SourceUpdated="UpdatedCommand">
                                     <ComboBox.Items>
                                         <ComboBoxItem>Absent</ComboBoxItem>
                                         <ComboBoxItem>Partial</ComboBoxItem>
@@ -45,6 +49,24 @@
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
+            <ItemsControl Grid.Row="1" ItemsSource="{Binding ListDataSessionsDistinct}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="{Binding ColumnCount}" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="Gray" BorderThickness="0" Margin="1">
+                            <TextBlock Text="{Binding Session, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Center" />
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+            <ItemsControl Grid.Row="2">
+                        <TextBlock Grid.ColumnSpan="2" Text="Session" HorizontalAlignment="Center" Margin="0,1,0,0"/>
+            </ItemsControl>
+            
         </Grid>
         <Grid Grid.Row="1">
            
