@@ -116,7 +116,7 @@
                     <!--// Orders //-->
 
                     <Menu:Btn Style="{StaticResource BtnStyle}"
-                          Command="{Binding OrdersCommand}">
+                          Command="{Binding TransactionsCommand}">
 
                         <Grid>
 
@@ -150,7 +150,7 @@
                     <!--// Shipments //-->
 
                     <Menu:Btn Style="{StaticResource BtnStyle}"
-                          Command="{Binding ShipmentsCommand}">
+                          Command="{Binding SafeguardCommand}">
 
                         <Grid>
 

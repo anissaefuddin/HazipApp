@@ -31,6 +31,9 @@
     <Compile Update="Views\Risk_Criteria_Risk_Ranking.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Safeguards.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Study_Attendance.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -67,6 +70,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Risk_Criteria_Risk_Ranking.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Safeguards.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Study.xaml">

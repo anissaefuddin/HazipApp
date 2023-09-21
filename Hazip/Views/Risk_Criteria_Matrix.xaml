@@ -37,18 +37,53 @@
 
                     <Grid Grid.Row="1" >
                         <Button Content="{StaticResource PrintIcon}" Command="{Binding PrintCommand}"  Style="{StaticResource IconStyle}" />
-                        <DataGrid ItemsSource="{Binding ListDataIntersection}" AutoGenerateColumns="True">
-                            <DataGrid.Columns>
-                            <DataGridComboBoxColumn Header="Risk Ranks"
-                                    SelectedValueBinding="{Binding Risk_Rank_ID}"
-                                    DisplayMemberPath="RM_Description"
-                                    SelectedValuePath="ID"
-                                    ItemsSource="{Binding ListDataRiskRankings}"/>
-                            </DataGrid.Columns>
-                        </DataGrid>
+                        
                     </Grid>
-                    
+                    <Grid>
+                        <DockPanel>
+                            <Label DockPanel.Dock="Left" Width="100" Background="LightGreen">
+                                <ItemsControl ItemsSource="{Binding ListDataLikelihoodsDistinct}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Vertical">
+                                                <TextBlock Text="{Binding RM_Description}" HorizontalAlignment="Right" />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </Label>
+                            <Label DockPanel.Dock="Right" Background="LightBlue">
+                                <ItemsControl Grid.Row="1" Grid.Column="1"  ItemsSource="{Binding ListData}">
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <UniformGrid Background="Transparent" 
+                             Rows="{Binding RowCount}" 
+                             Columns="{Binding ColumnCount}" Margin="2,2,2,2"/>
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                    
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border BorderThickness="1" BorderBrush="Black">
+                                                <Grid>
+                                                    <Rectangle Fill="{Binding Risk_Ranking.Color}" />
+                                                    <TextBlock>
+                                                                <Run Text="{Binding Likelihood.Code}"/>
+                                                                <Run Text="{Binding Severity.Code}"/>
+                                                        <Run Text="{Binding Risk_Ranking.Priority}"/>
+                                                    </TextBlock>
+                                                   
+                                                </Grid>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </Label>
+                            
+                        </DockPanel>
+                    </Grid>
                     <Grid Grid.Row="2">
+                        
                         <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding ListData}"
                                   SelectedItem="{Binding SelectedData}"
                                   ScrollViewer.VerticalScrollBarVisibility="Visible" 

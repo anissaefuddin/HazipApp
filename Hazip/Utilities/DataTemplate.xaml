@@ -15,6 +15,9 @@
     <DataTemplate DataType="{x:Type vm:RiskCriteriaVM}">
         <view:Risk_Criteria />
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:VM_Safeguard}">
+        <view:Safeguards />
+    </DataTemplate>
 
 
     <DataTemplate DataType="{x:Type vm:VM_GuideWord}">

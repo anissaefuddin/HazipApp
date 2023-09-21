@@ -22,7 +22,7 @@ namespace Hazip.ViewModels
         public ICommand NodesCommand { get; set; }
         public ICommand ProductsCommand { get; set; }
         public ICommand GuideWordCommand { get; set; }
-        public ICommand OrdersCommand { get; set; }
+        public ICommand SafeguardCommand { get; set; }
         public ICommand TransactionsCommand { get; set; }
         public ICommand ShipmentsCommand { get; set; }
         public ICommand RiskCriteriaCommand { get; set; }
@@ -31,7 +31,7 @@ namespace Hazip.ViewModels
         private void Nodes(object obj) => CurrentView = new VM_Nodes();
         private void Product(object obj) => CurrentView = new ProductVM();
         private void GuideWord(object obj) => CurrentView = new VM_GuideWord();
-        private void Order(object obj) => CurrentView = new OrderVM();
+        private void Safeguard(object obj) => CurrentView = new VM_Safeguard();
         private void Transaction(object obj) => CurrentView = new TransactionVM();
         private void Shipment(object obj) => CurrentView = new ShipmentVM();
         private void RiskCriteria(object obj) => CurrentView = new RiskCriteriaVM();
@@ -42,7 +42,7 @@ namespace Hazip.ViewModels
             NodesCommand = new RelayCommand(Nodes);
             GuideWordCommand = new RelayCommand(GuideWord);
             ProductsCommand = new RelayCommand(Product);
-            OrdersCommand = new RelayCommand(Order);
+            SafeguardCommand = new RelayCommand(Safeguard);
             TransactionsCommand = new RelayCommand(Transaction);
             ShipmentsCommand = new RelayCommand(Shipment);
             RiskCriteriaCommand = new RelayCommand(RiskCriteria);

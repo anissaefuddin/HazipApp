@@ -37,7 +37,7 @@ namespace Hazip.ViewModels
                 Enum.GetValues(typeof(SaverityType)).Cast<SaverityType>()
             );
             SelectedParameterType = SaverityType.Safety;
-            ListDataConsecuencesDistict = new ObservableCollection<Severitys>((App.dataObject.Risk_Criteria.severities ?? new List<Severitys>()).Where(severity => severity.Severity_Type == SelectedParameterType).ToList());
+            ListDataConsecuencesDistinct = new ObservableCollection<Severitys>((App.dataObject.Risk_Criteria.severities ?? new List<Severitys>()).Where(severity => severity.Severity_Type == SelectedParameterType).ToList());
 
       
 
@@ -99,6 +99,13 @@ namespace Hazip.ViewModels
             set { _listDataLikelihoods = value; OnPropertyChanged();}
         }
         private ObservableCollection<Likelihoods> _listDataLikelihoods;
+
+        public ObservableCollection<Likelihoods> ListDataLikelihoodsDistinct
+        {
+            get { return _listDataLikelihoodsDistinct; }
+            set { _listDataLikelihoodsDistinct = value; OnPropertyChanged(); }
+        }
+        private ObservableCollection<Likelihoods> _listDataLikelihoodsDistinct;
         public ObservableCollection<Risk_Rankings> ListDataRiskRankings
         {
             get { return _listDataRiskRankings; }
@@ -112,12 +119,12 @@ namespace Hazip.ViewModels
         }
         private ObservableCollection<Severitys> _listDataConsecuences;
 
-        public ObservableCollection<Severitys> ListDataConsecuencesDistict
+        public ObservableCollection<Severitys> ListDataConsecuencesDistinct
         {
-            get { return _listDataConsecuencesDistict; }
-            set { _listDataConsecuencesDistict = value; OnPropertyChanged(); }
+            get { return _listDataConsecuencesDistinct; }
+            set { _listDataConsecuencesDistinct = value; OnPropertyChanged(); }
         }
-        private ObservableCollection<Severitys> _listDataConsecuencesDistict;
+        private ObservableCollection<Severitys> _listDataConsecuencesDistinct;
 
         public Deviations SelectedData
         {
@@ -162,9 +169,10 @@ namespace Hazip.ViewModels
             
             ListDataIntersection = new ObservableCollection<Intersections>(App.dataObject.Risk_Criteria.intersections ?? new List<Intersections>());
             ListDataConsecuences = new ObservableCollection<Severitys>(App.dataObject.Risk_Criteria.severities ?? new List<Severitys>());
-            
+            ListDataConsecuencesDistinct = new ObservableCollection<Severitys>(App.dataObject.Risk_Criteria.severities.Distinct() ?? new List<Severitys>());
             ListDataRiskRankings = new ObservableCollection<Risk_Rankings>(App.dataObject.Risk_Criteria.risk_Rankings ?? new List<Risk_Rankings>());
             ListDataLikelihoods = new ObservableCollection<Likelihoods>(App.dataObject.Risk_Criteria.likelihoods ?? new List<Likelihoods>());
+            ListDataLikelihoodsDistinct = new ObservableCollection<Likelihoods>(App.dataObject.Risk_Criteria.likelihoods.Distinct().OrderByDescending(l => l.Code));
             ListData = new ObservableCollection<RiskMatrix>(ListDataIntersection.Select(intersection =>
             {
                 var severity = ListDataConsecuences.FirstOrDefault(s => s.ID == intersection.Severity_ID);
