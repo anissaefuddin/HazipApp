@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Hazip.Models
 {
-    public class Attendances
+    public class Attendances 
     {
         /*Team_Members_Sessions		[18]
 	0		{4}
@@ -20,7 +20,7 @@ Value	:	Present
         public string ID { get; set; } 
         public string ? Team_Member_ID { get; set; }
         public string ? Session_ID { get; set; }
-        public AttendanceType ? Value { get; set;}
+        public string ? Value { get; set;}
         public Team_Members ? team_Members { get; set; }
         public Sessions ? sessions { get; set; }
     }

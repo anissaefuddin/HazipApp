@@ -127,7 +127,7 @@ namespace Hazip.ViewModels
             {
                 ListData = new ObservableCollection<Nodes>(appData);
                 if(App.dataObject.Sessions != null)
-                    listDataSessions = new ObservableCollection<Sessions>(App.dataObject.Sessions);
+                    ListDataSessions = new ObservableCollection<Sessions>(App.dataObject.Sessions);
             }
 
         }

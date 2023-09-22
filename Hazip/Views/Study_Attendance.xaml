@@ -17,57 +17,36 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            <Grid.RowDefinitions>
-                <!-- Row header -->
-                <RowDefinition Height="Auto" />
-                <!-- ItemsControl -->
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-            <ItemsControl Grid.Row="0" ItemsSource="{Binding ListData}">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <!-- Menggunakan UniformGrid dengan 4 kolom -->
-                        <UniformGrid Columns="{Binding ColumnCount}" />
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Border BorderBrush="Gray" BorderThickness="1" Margin="5">
-                            <StackPanel>
-                                <!-- Kolom ID -->
-                                <TextBlock Text="{Binding team_Members.Name}" HorizontalAlignment="Center"/>
-                                <ComboBox SelectedItem="{Binding Value}" SelectedValuePath="Value" SourceUpdated="UpdatedCommand">
-                                    <ComboBox.Items>
-                                        <ComboBoxItem>Absent</ComboBoxItem>
-                                        <ComboBoxItem>Partial</ComboBoxItem>
-                                        <ComboBoxItem>Present</ComboBoxItem>
-                                    </ComboBox.Items>
-                                </ComboBox>
-                            </StackPanel>
-                        </Border>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-            <ItemsControl Grid.Row="1" ItemsSource="{Binding ListDataSessionsDistinct}">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <UniformGrid Columns="{Binding ColumnCount}" />
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Border BorderBrush="Gray" BorderThickness="0" Margin="1">
-                            <TextBlock Text="{Binding Session, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Center" />
-                        </Border>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-            <ItemsControl Grid.Row="2">
-                        <TextBlock Grid.ColumnSpan="2" Text="Session" HorizontalAlignment="Center" Margin="0,1,0,0"/>
-            </ItemsControl>
-            
-        </Grid>
+        <DataGrid Grid.Row="0" AutoGenerateColumns="False" ItemsSource="{Binding ListData}"
+                  SelectedItem="{Binding SelectedData, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                  CanUserAddRows="False" CanUserDeleteRows="False">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Team Member">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding team_Members.Name}" HorizontalAlignment="Center"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Team Member">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding sessions.Session}" HorizontalAlignment="Center"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Session" Binding="{Binding Value}" Width="*"/>
+                <DataGridTemplateColumn Header="Status">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                          
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+      
         <Grid Grid.Row="1">
            
         </Grid>

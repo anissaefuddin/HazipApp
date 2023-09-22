@@ -56,9 +56,10 @@
                                 <DataGridTemplateColumn Header="Session" Width="*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <ComboBox SelectedValuePath="ID" SelectedValue="{Binding Session_IDs, UpdateSourceTrigger=PropertyChanged}"  
-                                                      ItemsSource="{ Binding ListDataSessions, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" 
-                                                      DisplayMemberPath="Session" /> 
+                                            <ComboBox ItemsSource="{Binding DataContext.ListDataSessions, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                  DisplayMemberPath="Session"
+                  SelectedValuePath="ID"
+                  SelectedValue="{Binding Session_IDs, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>

@@ -45,7 +45,9 @@ namespace Hazip.ViewModels
         public ObservableCollection<Attendances> ListData
         {
             get { return listData; }
-            set { listData = value; OnPropertyChanged();  }
+            set { listData = value; OnPropertyChanged(nameof(ListData));
+                
+            }
         }
 
         private ObservableCollection<Attendances> listData;
@@ -92,15 +94,27 @@ namespace Hazip.ViewModels
             }
         }
 
-        public Team_Members_Sessions SelectedData
+        public Attendances SelectedData
         {
             get { return _selectedData; }
             set
             {
                 SetProperty(ref _selectedData, value);
+                ListDataTeamMemberSession = new ObservableCollection<Team_Members_Sessions>(ListData.Select(data =>
+                {
+                    return new Team_Members_Sessions
+                    {
+                        ID = data.ID,
+                        Session_ID = data.Session_ID,
+                        Team_Member_ID = data.Team_Member_ID,
+                        Value = data.Value
+                    };
+                }));
+
+                App.dataObject.Team_Members_Sessions = ListDataTeamMemberSession.ToList();
             }
         }
-        private Team_Members_Sessions _selectedData;
+        private Attendances _selectedData;
         public ObservableCollection<SaverityType> ParameterTypes { get; set; }
         public SaverityType SelectedParameterType
         {
@@ -146,12 +160,14 @@ namespace Hazip.ViewModels
                         Session_ID = data.Session_ID,
                         Team_Member_ID = data.Team_Member_ID,
                         team_Members = member,
-                        sessions = session
+                        sessions = session,
+                        Value = data.Value
                     };
                 }));
             }
         }
 
+        
 
         private void PrintToExcel()
         {

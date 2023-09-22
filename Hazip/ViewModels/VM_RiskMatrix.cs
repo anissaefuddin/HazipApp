@@ -45,7 +45,7 @@ namespace Hazip.ViewModels
         #endregion
 
         #region Property
-
+        public ObservableCollection<ObservableCollection<object>> Matrix { get; set; }
         private ICollectionView _collectionView;
         public int WidthTable
         {
